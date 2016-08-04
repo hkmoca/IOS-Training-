@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     
     func createObjects() {
         
-        let martha = Person(firstName: "Martha", lastName: "quijada", email: "mquijada@gmail.com", profileImage: UIImage(named: "martha")!)
+        let martha = Person(firstName: "Martha", lastName: "Quijada", email: "mquijada@gmail.com", profileImage: UIImage(named: "martha")!)
         let juan = Person(firstName: "Juan", lastName: "Moreno", email: "juna@gmail.com", profileImage: UIImage(named: "juan")!)
         let hector = Person(firstName: "Héctor", lastName: "Moreno", email: "hkmoca@gmail.com", profileImage: UIImage(named: "obama")!)
         let pedro = Person(firstName: "Pedro", lastName: "Verde", email: "pverde@gmail.com", profileImage: UIImage(named: "pedro")!)
@@ -55,7 +55,6 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! CustonCell
         cell.name.text = persons[indexPath.row].fullName
-        cell.lastName.text = persons[indexPath.row].lastName
         cell.email.text = persons[indexPath.row].email
         cell.profileImage.image = persons[indexPath.row].profileImage
         return cell

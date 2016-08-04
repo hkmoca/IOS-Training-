@@ -12,7 +12,7 @@ class CustonCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var lastName: UILabel!
+    
     
     
 

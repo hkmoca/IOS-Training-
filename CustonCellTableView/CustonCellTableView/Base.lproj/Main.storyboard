@@ -56,20 +56,12 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNt-ed-c2j">
-                                                    <rect key="frame" x="189" y="19" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Bse-76-IhW" firstAttribute="bottom" secondItem="6vh-8N-Fho" secondAttribute="bottomMargin" id="6jI-Uj-G9w"/>
-                                                <constraint firstItem="yNt-ed-c2j" firstAttribute="top" secondItem="6vh-8N-Fho" secondAttribute="topMargin" constant="11" id="6wI-tE-PQ8"/>
                                                 <constraint firstItem="ndX-6a-wk5" firstAttribute="leading" secondItem="Bse-76-IhW" secondAttribute="trailing" constant="26" id="ImT-fF-ZhR"/>
                                                 <constraint firstItem="OET-1G-q7p" firstAttribute="leading" secondItem="Bse-76-IhW" secondAttribute="trailing" constant="26" id="NLX-0f-AOy"/>
                                                 <constraint firstItem="ndX-6a-wk5" firstAttribute="top" secondItem="6vh-8N-Fho" secondAttribute="topMargin" constant="11" id="VPp-pU-1YI"/>
-                                                <constraint firstItem="yNt-ed-c2j" firstAttribute="leading" secondItem="ndX-6a-wk5" secondAttribute="trailing" constant="10" id="d3a-Dp-GL4"/>
                                                 <constraint firstItem="Bse-76-IhW" firstAttribute="leading" secondItem="6vh-8N-Fho" secondAttribute="leadingMargin" id="kF9-6s-1pW"/>
                                                 <constraint firstItem="OET-1G-q7p" firstAttribute="top" secondItem="ndX-6a-wk5" secondAttribute="bottom" constant="8" id="yjL-1s-K3J"/>
                                                 <constraint firstItem="Bse-76-IhW" firstAttribute="top" secondItem="6vh-8N-Fho" secondAttribute="topMargin" id="zCx-w3-5l0"/>
@@ -77,7 +69,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="email" destination="OET-1G-q7p" id="aPD-OK-1Mq"/>
-                                            <outlet property="lastName" destination="yNt-ed-c2j" id="taQ-vk-OfD"/>
                                             <outlet property="name" destination="ndX-6a-wk5" id="3Nn-ob-t4d"/>
                                             <outlet property="profileImage" destination="Bse-76-IhW" id="nTe-kZ-34N"/>
                                         </connections>
