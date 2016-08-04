@@ -15,13 +15,14 @@ class Person {
     var lastName: String = ""
     var email: String = ""
     var profileImage: UIImage
-    
+    var fullName: String = ""
     
     init(firstName: String, lastName: String, email: String, profileImage: UIImage){
         self.firstName = firstName
         self.lastName  = lastName
         self.email     = email
         self.profileImage = profileImage
+        fullName = "\(firstName) \(lastName)"
     }
     
 }
