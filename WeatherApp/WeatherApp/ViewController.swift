@@ -14,8 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var temperatureMax: UILabel!
     @IBOutlet weak var temperatureMin: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
-    var weatherElements = [Weather]()
+    
+    var weather = Weather()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +26,18 @@ class ViewController: UIViewController {
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? [String: AnyObject] {
-                    if let main = JSON["main"] as? [String: AnyObject] {
+                   
                         
 
                         
-                        self.weatherElements.append(Weather(main: main))
-                        self.temperatureLabel.text = ("\(String(self.weatherElements[0].temperature))º")
-                        self.temperatureMax.text = ("Max temp = \(String(self.weatherElements[0].tempMax))º")
-                        self.temperatureMin.text = ("Min temp = \(String(self.weatherElements[0].tempMin))º")
+                        self.weather = Weather(dictionary: JSON)
+                        self.temperatureLabel.text = ("\(String(self.weather.temperature))º")
+                        self.temperatureMax.text = ("Max temp = \(String(self.weather.tempMax))º")
+                        self.temperatureMin.text = ("Min temp = \(String(self.weather.tempMin))º")
+                        self.descriptionLabel.text = self.weather.descriptionWeather
 
                         
-                    }
+                    
                 }
         }
         
