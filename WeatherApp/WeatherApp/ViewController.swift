@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import AlamofireImage
 import Alamofire
+import SVProgressHUD
 
 class ViewController: UIViewController {
     
@@ -15,40 +17,45 @@ class ViewController: UIViewController {
     @IBOutlet weak var temperatureMax: UILabel!
     @IBOutlet weak var temperatureMin: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var imageIcon: UIImageView!
     
+
     
-    var weather = Weather()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Alamofire.request(.GET, "http://api.openweathermap.org/data/2.5/weather?lat=29.098578&lon=-110.998308&appid=3f3a608541a999f9d309a7f2b3f36ac7&units=metric", parameters: nil)
-            .responseJSON { response in
-                
-                if let JSON = response.result.value as? [String: AnyObject] {
-                   
-                        
 
-                        
-                        self.weather = Weather(dictionary: JSON)
-                        self.temperatureLabel.text = ("\(String(self.weather.temperature))º")
-                        self.temperatureMax.text = ("Max temp = \(String(self.weather.tempMax))º")
-                        self.temperatureMin.text = ("Min temp = \(String(self.weather.tempMin))º")
-                        self.descriptionLabel.text = self.weather.descriptionWeather
-
-                        
-                    
-                }
-        }
-        
+        SVProgressHUD.show()
+        getWeatherInfo()
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func reloadButton(sender: AnyObject) {
+        
+        getWeatherInfo()
+    
     }
-
-
+    
+    func getWeatherInfo() {
+        
+        let weatherViewModel = WeatherViewModel()
+        weatherViewModel.getMainWeather({ (weather)  in
+            
+            self.temperatureLabel.text = ("\(String(weather.temperature))º")
+            self.temperatureMax.text  = ("Max \(String( weather.tempMax))º")
+            self.temperatureMin.text  = ("Min \(String(weather.tempMin))º")
+            self.descriptionLabel.text = weather.descriptionWeather
+            self.imageIcon.af_setImageWithURL(weather.urlIcon)
+            SVProgressHUD.dismiss()
+            
+            },
+                                                        
+                onFailure: { (error) in
+                print(error)
+            }
+        )
+    }
 }
+
+
 
