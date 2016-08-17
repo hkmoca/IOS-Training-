@@ -33,7 +33,7 @@ class Weather: Mappable {
         tempMin                 <- map["main.temp_min"]
         descriptionWeather      <- map["weather.0.description"]
         imageIcon               <- map["weather.0.icon"]
-        
+        dateTime                <- map["dt"]
     }
 //        if let dateTime = dictionary["dt"] as? Double {
 //            self.dateTime = dateTime
