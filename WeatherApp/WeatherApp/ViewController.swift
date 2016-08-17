@@ -24,7 +24,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         SVProgressHUD.show()
         getWeatherInfo()
         
@@ -47,9 +46,7 @@ class ViewController: UIViewController {
             self.descriptionLabel.text = weather.descriptionWeather
             self.imageIcon.af_setImageWithURL(weather.urlIcon)
             SVProgressHUD.dismiss()
-            
             },
-                                                        
                 onFailure: { (error) in
                 print(error)
             }

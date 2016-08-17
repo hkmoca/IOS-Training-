@@ -7,20 +7,15 @@
 //
 
 import Foundation
-
+import ObjectMapper
 
 class WeatherViewModel {
 
     func getMainWeather(compleation: (weather: Weather) -> Void,  onFailure: (error: NSError) -> Void) {
-        
         let weatherConection = WeatherConection()
-        
             weatherConection.getWeather({ (json) in
-            
-            let weather = Weather(dictionary: json)
-
-            compleation (weather: weather)
-            
+                let weather = Mapper<Weather>().map(json)
+            compleation (weather: weather!)
             },
             onFailure: { (error) in
              onFailure(error: error)
@@ -29,21 +24,10 @@ class WeatherViewModel {
     }
     
     func getForecastWeather(compleation: (forecastElements: [Weather]) -> Void,  onFailure: (error: NSError) -> Void) {
-        
-        var forecastElements = [Weather]()
         let weatherConection = WeatherConection()
-        
             weatherConection.getWeatherForecast({ (json) in
-            if let results = json["list"] as? [[String: AnyObject]] {
-                
-                for element in results {
-                    
-                    let data = Weather(dictionary: element)
-                    forecastElements.append(data)
-                }
-            }
-
-            compleation (forecastElements: forecastElements)
+                let forecastElements: Array<Weather> = Mapper<Weather>().mapArray(json["list"])!
+                compleation (forecastElements: forecastElements)
             
             },
               onFailure: { (error) in

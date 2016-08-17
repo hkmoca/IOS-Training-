@@ -19,10 +19,8 @@ class ForecastViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         SVProgressHUD.showWithStatus("Working..")
         getForecastInfo()
-        
     }
     
     func getForecastInfo() {
@@ -42,9 +40,10 @@ class ForecastViewController: UIViewController {
 
 }
 
+
+
 extension ForecastViewController: UITableViewDataSource {
 
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -56,13 +55,11 @@ extension ForecastViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CustomCell
-        
-        
         let weather = forecastElements[indexPath.row]
         
             cell?.descriptionW.text = weather.descriptionWeather
-            cell?.tempMax.text = String(weather.tempMax)
-            cell?.tempMin.text = String(weather.tempMin)
+            cell?.tempMax.text = ("\(String(weather.tempMax))º")
+            cell?.tempMin.text = ("\(String(weather.tempMin))º")
             cell?.imageIcon.af_setImageWithURL(weather.urlIcon)
         
         
