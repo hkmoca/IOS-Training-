@@ -6,22 +6,32 @@
 //  Copyright © 2016 Hkapp. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import Alamofire
+import AlamofireImage
 
 class FirstViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    var usersElements = [UsersDataElements]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        displayUsersInfo()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func displayUsersInfo() {
+        
+        let gitHubViewModel = GitHubViewModel()
+        gitHubViewModel.getUsersInfo({ (users) in
+            self.usersElements = users
+            self.tableView.reloadData()
+            },
+                onFailure: { (error) in
+                    print(error)
+            }
+        )
     }
-
-
+    
 }
 
 extension FirstViewController: UITableViewDataSource {
@@ -31,13 +41,15 @@ extension FirstViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return usersElements.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("UsersCell", forIndexPath: indexPath) as? CustomCell
-        cell?.textLabel!.text = "Hola"
+        let diplayInfo = usersElements[indexPath.row]
+        cell?.avatarImage.af_setImageWithURL(diplayInfo.image)
+        cell?.userName.text = diplayInfo.userName
         return cell!
     }
 

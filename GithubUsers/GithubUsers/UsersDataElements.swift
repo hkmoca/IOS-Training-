@@ -7,14 +7,20 @@
 //
 
 import Foundation
+import UIKit
 import ObjectMapper
 
-class UsersData: Mappable {
+class UsersDataAPI: Mappable {
 
     var userName: String = ""
     var avatarImage: String = ""
+    
+    var gitHubAPIUrl: NSURL! {
+        return NSURL(string: "https://api.github.com/users")
+    }
+    
     var userUrl: NSURL! {
-        return NSURL(string: "https://api.github.com/users/\(userName)")
+        return NSURL(string: "\(gitHubAPIUrl)/\(userName)")
     }
 
     required init?(_ map: Map) {

@@ -1,5 +1,5 @@
 //
-//  GithubConection.swift
+//  UserDetailInfo.swift
 //  GithubUsers
 //
 //  Created by Héctor Moreno on 17/08/16.
@@ -7,9 +7,3 @@
 //
 
 import Foundation
-import Alamofire
-
-class GithubConection {
-    
-
-}
