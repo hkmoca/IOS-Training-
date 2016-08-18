@@ -25,7 +25,6 @@ class Weather: Mappable {
     required init?(_ map: Map) {
         
     }
-   
     
     func mapping(map: Map) {
         temperature             <- map["main.temp"]
@@ -35,8 +34,4 @@ class Weather: Mappable {
         imageIcon               <- map["weather.0.icon"]
         dateTime                <- map["dt"]
     }
-//        if let dateTime = dictionary["dt"] as? Double {
-//            self.dateTime = dateTime
-
-    
 }

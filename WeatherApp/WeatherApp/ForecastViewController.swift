@@ -41,7 +41,6 @@ class ForecastViewController: UIViewController {
 }
 
 
-
 extension ForecastViewController: UITableViewDataSource {
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
