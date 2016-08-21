@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class UsersDetailViewController: UIViewController {
+class UserDetailViewController: UIViewController {
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
@@ -26,13 +26,13 @@ class UsersDetailViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        displayUsersInfo()
+        displayUserInfo()
     }
     
-    func displayUsersInfo() {
+    func displayUserInfo() {
        let userLogin = user
         
-        gitHubViewModel.getUsersInfoDetail (userLogin, completion: { (users) in
+        gitHubViewModel.getUserInfoDetail (userLogin, completion: { (users) in
             
             
             self.userLoginName.text = self.user.userLogin
@@ -49,7 +49,7 @@ class UsersDetailViewController: UIViewController {
     }
 }
 
-extension UsersDetailViewController: UITableViewDataSource {
+extension UserDetailViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

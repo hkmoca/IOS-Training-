@@ -8,29 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		15E2ED141D64F0C700B04E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED131D64F0C700B04E04 /* AppDelegate.swift */; };
-		15E2ED161D64F0C700B04E04 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED151D64F0C700B04E04 /* FirstViewController.swift */; };
+		15E2ED161D64F0C700B04E04 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED151D64F0C700B04E04 /* UserViewController.swift */; };
 		15E2ED181D64F0C700B04E04 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED171D64F0C700B04E04 /* SecondViewController.swift */; };
 		15E2ED1B1D64F0C700B04E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E2ED191D64F0C700B04E04 /* Main.storyboard */; };
 		15E2ED1D1D64F0C700B04E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E2ED1C1D64F0C700B04E04 /* Assets.xcassets */; };
 		15E2ED201D64F0C700B04E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E2ED1E1D64F0C700B04E04 /* LaunchScreen.storyboard */; };
 		15E2ED281D65216F00B04E04 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED271D65216F00B04E04 /* CustomCell.swift */; };
-		15E2ED2B1D65265600B04E04 /* GithubConection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED2A1D65265600B04E04 /* GithubConection.swift */; };
-		15E2ED2D1D6526A500B04E04 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED2C1D6526A500B04E04 /* UsersData.swift */; };
+		15E2ED2B1D65265600B04E04 /* GitHubConection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED2A1D65265600B04E04 /* GitHubConection.swift */; };
+		15E2ED2D1D6526A500B04E04 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED2C1D6526A500B04E04 /* User.swift */; };
+		15E2ED2F1D6533F000B04E04 /* GitHubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED2E1D6533F000B04E04 /* GitHubViewModel.swift */; };
+		15E2ED331D66201400B04E04 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED321D66201400B04E04 /* UserDetailViewController.swift */; };
+		15E2ED351D6A324A00B04E04 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED341D6A324A00B04E04 /* FollowersViewController.swift */; };
 		67A00D9329888241DF895355 /* Pods_GithubUsers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EC801DD540EEF378235A9A /* Pods_GithubUsers.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		15E2ED101D64F0C700B04E04 /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E2ED131D64F0C700B04E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		15E2ED151D64F0C700B04E04 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		15E2ED151D64F0C700B04E04 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		15E2ED171D64F0C700B04E04 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		15E2ED1A1D64F0C700B04E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		15E2ED1C1D64F0C700B04E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15E2ED1F1D64F0C700B04E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15E2ED211D64F0C700B04E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15E2ED271D65216F00B04E04 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		15E2ED2A1D65265600B04E04 /* GithubConection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubConection.swift; sourceTree = "<group>"; };
-		15E2ED2C1D6526A500B04E04 /* UsersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
+		15E2ED2A1D65265600B04E04 /* GitHubConection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubConection.swift; sourceTree = "<group>"; };
+		15E2ED2C1D6526A500B04E04 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		15E2ED2E1D6533F000B04E04 /* GitHubViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubViewModel.swift; sourceTree = "<group>"; };
+		15E2ED321D66201400B04E04 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		15E2ED341D6A324A00B04E04 /* FollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		246A5287B501C66B05BD5553 /* Pods-GithubUsers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubUsers.release.xcconfig"; path = "Pods/Target Support Files/Pods-GithubUsers/Pods-GithubUsers.release.xcconfig"; sourceTree = "<group>"; };
 		C1EC801DD540EEF378235A9A /* Pods_GithubUsers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubUsers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED915DB276ADFDD93351E50 /* Pods-GithubUsers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubUsers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GithubUsers/Pods-GithubUsers.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,15 +76,18 @@
 			isa = PBXGroup;
 			children = (
 				15E2ED131D64F0C700B04E04 /* AppDelegate.swift */,
-				15E2ED151D64F0C700B04E04 /* FirstViewController.swift */,
+				15E2ED151D64F0C700B04E04 /* UserViewController.swift */,
+				15E2ED321D66201400B04E04 /* UserDetailViewController.swift */,
+				15E2ED341D6A324A00B04E04 /* FollowersViewController.swift */,
 				15E2ED171D64F0C700B04E04 /* SecondViewController.swift */,
 				15E2ED191D64F0C700B04E04 /* Main.storyboard */,
 				15E2ED1C1D64F0C700B04E04 /* Assets.xcassets */,
 				15E2ED1E1D64F0C700B04E04 /* LaunchScreen.storyboard */,
 				15E2ED211D64F0C700B04E04 /* Info.plist */,
 				15E2ED271D65216F00B04E04 /* CustomCell.swift */,
-				15E2ED2A1D65265600B04E04 /* GithubConection.swift */,
-				15E2ED2C1D6526A500B04E04 /* UsersData.swift */,
+				15E2ED2C1D6526A500B04E04 /* User.swift */,
+				15E2ED2E1D6533F000B04E04 /* GitHubViewModel.swift */,
+				15E2ED2A1D65265600B04E04 /* GitHubConection.swift */,
 			);
 			path = GithubUsers;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 				TargetAttributes = {
 					15E2ED0F1D64F0C700B04E04 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 594V3GMFFH;
 					};
 				};
 			};
@@ -222,12 +232,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E2ED351D6A324A00B04E04 /* FollowersViewController.swift in Sources */,
 				15E2ED181D64F0C700B04E04 /* SecondViewController.swift in Sources */,
 				15E2ED141D64F0C700B04E04 /* AppDelegate.swift in Sources */,
-				15E2ED2B1D65265600B04E04 /* GithubConection.swift in Sources */,
+				15E2ED2B1D65265600B04E04 /* GitHubConection.swift in Sources */,
 				15E2ED281D65216F00B04E04 /* CustomCell.swift in Sources */,
-				15E2ED2D1D6526A500B04E04 /* UsersData.swift in Sources */,
-				15E2ED161D64F0C700B04E04 /* FirstViewController.swift in Sources */,
+				15E2ED2D1D6526A500B04E04 /* User.swift in Sources */,
+				15E2ED2F1D6533F000B04E04 /* GitHubViewModel.swift in Sources */,
+				15E2ED331D66201400B04E04 /* UserDetailViewController.swift in Sources */,
+				15E2ED161D64F0C700B04E04 /* UserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,10 +356,13 @@
 			baseConfigurationReference = FED915DB276ADFDD93351E50 /* Pods-GithubUsers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GithubUsers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hkapp.GithubUsers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -355,10 +371,13 @@
 			baseConfigurationReference = 246A5287B501C66B05BD5553 /* Pods-GithubUsers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GithubUsers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hkapp.GithubUsers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

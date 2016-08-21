@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import ObjectMapper
 
-class UsersDataElements: Mappable {
+class User: Mappable {
 
     var userLogin: String = ""
     var userName: String = ""

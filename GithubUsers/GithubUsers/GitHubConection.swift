@@ -9,15 +9,32 @@
 import Foundation
 import Alamofire
 
-class GithubConection {
+class GitHubConection {
     
     
-    func getUsersAPI (completion: (json: [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
-       
+    func getUserAPI (completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
     
-    let gitHubAPI = NSURL(string: "https://api.github.com/users")!
+        let gitHubConection = User()
+        let gitHubAPIURL = gitHubConection.gitHubAPIUrl
+        Alamofire.request(.GET, gitHubAPIURL, parameters: nil)
+            .responseJSON { response in
+                
+                switch response.result {
+                    
+                case.Success(let JSON):
+                    completion(json: JSON as! [[String: AnyObject]])
+                    
+                case.Failure(let ERROR):
+                    onFailure(error: ERROR)
+                }
+        }
+    }
     
-        Alamofire.request(.GET, gitHubAPI, parameters: nil)
+    func getUserAPIDetails (userLogin: User ,completion: (json: [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
+        
+        let gitHubConection = User()
+        let gitHubUserDetail = gitHubConection.gitHubAPIUrl
+        Alamofire.request(.GET, "\(gitHubUserDetail)/\(userLogin.userLogin)", parameters: nil)
             .responseJSON { response in
                 
                 switch response.result {
@@ -30,4 +47,8 @@ class GithubConection {
                 }
         }
     }
+    
+    
+    
+    
 }
