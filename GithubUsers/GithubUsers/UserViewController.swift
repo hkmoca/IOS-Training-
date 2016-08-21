@@ -10,9 +10,9 @@ import Foundation
 import Alamofire
 import AlamofireImage
 
-class FirstViewController: UIViewController {
+class UserViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var usersElements = [UsersDataElements]()
+    var userElements = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,8 @@ class FirstViewController: UIViewController {
         
         let gitHubViewModel = GitHubViewModel()
         gitHubViewModel.getUsersInfo({ (users) in
-            self.usersElements = users
+            
+            self.userElements = users
             self.tableView.reloadData()
             },
                 onFailure: { (error) in
@@ -32,24 +33,42 @@ class FirstViewController: UIViewController {
         )
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "userDetail" {
+            
+            let usersDetailsView = segue.destinationViewController as! UserDetailViewController
+            let path = tableView.indexPathForSelectedRow
+                usersDetailsView.user = userElements[path!.row]
+        }
+    }
+    
 }
 
-extension FirstViewController: UITableViewDataSource {
+extension UserViewController: UITableViewDelegate{
+    
+
+
+}
+
+extension UserViewController: UITableViewDataSource {
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersElements.count
+        return userElements.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("UsersCell", forIndexPath: indexPath) as? CustomCell
-        let diplayInfo = usersElements[indexPath.row]
-        cell?.avatarImage.af_setImageWithURL(diplayInfo.image)
-        cell?.userName.text = diplayInfo.userName
+        
+        let elementRow = userElements[indexPath.row]
+        cell?.userName.text = elementRow.userLogin
+        cell?.avatarImage.af_setImageWithURL(elementRow.image)
+        
+        
         return cell!
     }
 
