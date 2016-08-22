@@ -15,8 +15,8 @@ class GitHubViewModel {
        
         let gitHubConection = GitHubConection()
             gitHubConection.getUserAPI({ (json) in
-                let user: Array<User> = Mapper<User>().mapArray(json)!
-                completion(user: user)
+            let user: Array<User> = Mapper<User>().mapArray(json)!
+            completion(user: user)
         },
             onFailure: { (error) in
             onFailure(error: error)
@@ -27,8 +27,7 @@ class GitHubViewModel {
     func getUserInfoDetail(userLogin: User, completion: (userDetails: User) -> Void, onFailure: (error: NSError) -> Void) {
         
         let gitHubConection = GitHubConection()
-        
-        gitHubConection.getUserAPIDetails(userLogin, completion: { (json) in
+            gitHubConection.getUserAPIDetails(userLogin, completion: { (json) in
             let userDetails = Mapper<User>().map(json)
             completion(userDetails: userDetails!)
             },
@@ -41,7 +40,7 @@ class GitHubViewModel {
     func getUserFollowers(userLogin: User, completion: (userFollowers: [User]) -> Void, onFailure: (error: NSError) -> Void){
         
         let gitHubConection = GitHubConection()
-        gitHubConection.getUserFollowers(userLogin, compleation: { (json) in
+            gitHubConection.getUserFollowers(userLogin, compleation: { (json) in
             let userFollowers: Array<User> = Mapper<User>().mapArray(json)!
             completion(userFollowers: userFollowers)
             },

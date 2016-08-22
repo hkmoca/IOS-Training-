@@ -15,8 +15,8 @@ class GitHubConection {
     func getUserAPI (completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
     
         let gitHubConection = User()
-        let gitHubAPIURL = gitHubConection.gitHubAPIUrl
-        Alamofire.request(.GET, gitHubAPIURL, parameters: nil)
+        let gitHubURL = gitHubConection.gitHubAPIUrl
+        Alamofire.request(.GET, gitHubURL, parameters: nil)
             .responseJSON { response in
                 
                 switch response.result {

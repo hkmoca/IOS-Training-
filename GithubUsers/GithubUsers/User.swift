@@ -17,18 +17,14 @@ class User: Mappable {
     var followers: Int = 0
     var following: Int = 0
     var publicRepos: Int = 0
-    var avatarImageStringUrl: String = ""
-    
+    var avatarImageStringURL: String = ""
     
     var gitHubAPIUrl: NSURL! {
         return NSURL(string: "https://api.github.com/users")
     }
     var userImageUrl: NSURL! {
-        return NSURL(string: "\(avatarImageStringUrl)")
+        return NSURL(string: "\(avatarImageStringURL)")
     }
-    
-
-
     
     init() {
     
@@ -41,7 +37,7 @@ class User: Mappable {
      func mapping(map: Map) {
         userName              <- map["name"]
         userLogin             <- map["login"]
-        avatarImageStringUrl  <- map["avatar_url"]
+        avatarImageStringURL  <- map["avatar_url"]
         followers             <- map["followers"]
         following             <- map["following"]
         publicRepos           <- map["public_repos"]

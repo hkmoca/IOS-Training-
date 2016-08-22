@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class UserDetailViewController: UIViewController {
 
     @IBOutlet weak var userImage: UIImageView!
@@ -16,30 +17,27 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var repos: UILabel!
     @IBOutlet weak var following: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    let tableViewElements = ["Followers","Organization"]
     
+    let tableViewElements = ["Followers","Organization"]
     var user: User!
     
     
-    let gitHubViewModel = GitHubViewModel()
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         displayUserInfo()
     }
     
     func displayUserInfo() {
-       let userLogin = user
+        let gitHubViewModel = GitHubViewModel()
+        let userLogin = user
         
-        gitHubViewModel.getUserInfoDetail (userLogin, completion: { (userDetails) in
+            gitHubViewModel.getUserInfoDetail (userLogin, completion: { (userDetails) in
             
-            
-            self.userLoginName.text = self.user.userLogin
+            self.userName.text  = userDetails.userName
+            self.userLoginName.text = userDetails.userLogin
             self.followers.text = String(userDetails.followers)
             self.following.text = String(userDetails.following)
             self.repos.text =     String(userDetails.publicRepos)
-            self.userName.text  = userDetails.userName
             self.userImage.af_setImageWithURL(self.user.userImageUrl)
             },
              onFailure: { (error) in
@@ -73,11 +71,7 @@ extension UserDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("detailView", forIndexPath: indexPath)
-
-        
         cell.textLabel!.text = tableViewElements[indexPath.row]
-     
-        
         return cell
     }
     

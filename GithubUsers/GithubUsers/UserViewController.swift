@@ -16,10 +16,10 @@ class UserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayUsersInfo()
+        displayUserInfo()
     }
 
-    func displayUsersInfo() {
+    func displayUserInfo() {
         
         let gitHubViewModel = GitHubViewModel()
         gitHubViewModel.getUserInfo({ (user) in
@@ -41,15 +41,6 @@ class UserViewController: UIViewController {
                 usersDetailsView.user = userElements[path!.row]
         }
     }
-    
-    
-    
-}
-
-extension UserViewController: UITableViewDelegate{
-    
-
-
 }
 
 extension UserViewController: UITableViewDataSource {
@@ -65,12 +56,9 @@ extension UserViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("UsersCell", forIndexPath: indexPath) as? CustomCell
-        
-        let elementRow = userElements[indexPath.row]
-        cell?.userName.text = elementRow.userLogin
-        cell?.avatarImage.af_setImageWithURL(elementRow.userImageUrl)
-        
-        
+        let user = userElements[indexPath.row]
+        cell?.userName.text = user.userLogin
+        cell?.avatarImage.af_setImageWithURL(user.userImageUrl)
         return cell!
     }
 

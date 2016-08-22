@@ -17,8 +17,6 @@ class FollowersViewController: UIViewController {
     var followers = [User]()
     var user: User!
     
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +25,9 @@ class FollowersViewController: UIViewController {
     
     
     func displayUserFollowers() {
-        let userLogin = user
-        
         let gitHubViewModel = GitHubViewModel()
+        let userLogin = user
+
         gitHubViewModel.getUserFollowers(userLogin, completion:{ (userFollowers) in
             
             self.followers = userFollowers
@@ -58,9 +56,9 @@ extension FollowersViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("UserFollowers", forIndexPath: indexPath) as? CustomCell
         
-        let elementRow = followers[indexPath.row]
-        cell?.userName.text = elementRow.userLogin
-        cell?.avatarImage.af_setImageWithURL(elementRow.userImageUrl)
+        let follower = followers[indexPath.row]
+        cell?.userName.text = follower.userLogin
+        cell?.avatarImage.af_setImageWithURL(follower.userImageUrl)
         
         
         return cell!
