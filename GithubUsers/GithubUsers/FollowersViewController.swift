@@ -56,7 +56,7 @@ extension FollowersViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserFollowers", forIndexPath: indexPath) as? FollowersCustomCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("UserFollowers", forIndexPath: indexPath) as? CustomCell
         
         let elementRow = followers[indexPath.row]
         cell?.userName.text = elementRow.userLogin
