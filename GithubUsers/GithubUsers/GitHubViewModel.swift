@@ -11,12 +11,12 @@ import ObjectMapper
 
 class GitHubViewModel {
     
-    func getUserInfo(completion: (users: [User]) -> Void, onFailure: (error: NSError) -> Void) {
+    func getUserInfo(completion: (user: [User]) -> Void, onFailure: (error: NSError) -> Void) {
        
         let gitHubConection = GitHubConection()
             gitHubConection.getUserAPI({ (json) in
-                let users: Array<User> = Mapper<User>().mapArray(json)!
-            completion(users: users)
+                let user: Array<User> = Mapper<User>().mapArray(json)!
+                completion(user: user)
         },
             onFailure: { (error) in
             onFailure(error: error)
@@ -24,19 +24,30 @@ class GitHubViewModel {
         )
     }
     
-    func getUserInfoDetail(userLogin: User, completion: (users: User) -> Void, onFailure: (error: NSError) -> Void) {
+    func getUserInfoDetail(userLogin: User, completion: (userDetails: User) -> Void, onFailure: (error: NSError) -> Void) {
         
         let gitHubConection = GitHubConection()
         
         gitHubConection.getUserAPIDetails(userLogin, completion: { (json) in
-            let users = Mapper<User>().map(json)
-            completion(users: users!)
+            let userDetails = Mapper<User>().map(json)
+            completion(userDetails: userDetails!)
             },
-                                    onFailure: { (error) in
-                                        onFailure(error: error)
+                 onFailure: { (error) in
+                 onFailure(error: error)
             }
         )
+    }
+    
+    func getUserFollowers(userLogin: User, completion: (userFollowers: [User]) -> Void, onFailure: (error: NSError) -> Void){
         
-       
+        let gitHubConection = GitHubConection()
+        gitHubConection.getUserFollowers(userLogin, compleation: { (json) in
+            let userFollowers: Array<User> = Mapper<User>().mapArray(json)!
+            completion(userFollowers: userFollowers)
+            },
+                onFailure: { (error) in
+                onFailure(error: error)
+                }
+        )
     }
 }

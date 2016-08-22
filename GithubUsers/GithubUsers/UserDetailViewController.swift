@@ -32,21 +32,32 @@ class UserDetailViewController: UIViewController {
     func displayUserInfo() {
        let userLogin = user
         
-        gitHubViewModel.getUserInfoDetail (userLogin, completion: { (users) in
+        gitHubViewModel.getUserInfoDetail (userLogin, completion: { (userDetails) in
             
             
             self.userLoginName.text = self.user.userLogin
-            self.userImage.af_setImageWithURL(self.user.image)
-            self.followers.text = String(users.followers)
-            self.following.text = String(users.following)
-            self.repos.text =     String(users.publicRepos)
-            self.userName.text  = users.userName
+            self.followers.text = String(userDetails.followers)
+            self.following.text = String(userDetails.following)
+            self.repos.text =     String(userDetails.publicRepos)
+            self.userName.text  = userDetails.userName
+            self.userImage.af_setImageWithURL(self.user.userImageUrl)
             },
              onFailure: { (error) in
               print(error)
                 }
             )
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "userFollowers" {
+            
+            let usersDetailsView = segue.destinationViewController as! FollowersViewController
+            usersDetailsView.user = user
+            
+        }
+    }
+    
+    
 }
 
 extension UserDetailViewController: UITableViewDataSource {

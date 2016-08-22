@@ -18,18 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="117" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1n6-wS-K0M">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1n6-wS-K0M">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UsersCell" rowHeight="117" id="GD5-DW-Uhu" customClass="CustomCell" customModule="GithubUsers" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="117"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UsersCell" rowHeight="113" id="GD5-DW-Uhu" customClass="CustomCell" customModule="GithubUsers" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GD5-DW-Uhu" id="Kao-lE-Mtl">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="116"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="56s-Xw-AkT">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="56s-Xw-AkT">
                                                     <rect key="frame" x="13" y="14" width="87" height="87"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="87" id="QL0-PU-XcK"/>
@@ -157,7 +157,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="FD5-O6-QLh" kind="show" id="sv5-Vt-rMq"/>
+                                            <segue destination="FD5-O6-QLh" kind="show" identifier="userFollowers" id="sv5-Vt-rMq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -215,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="2250" y="-320"/>
         </scene>
-        <!--View Controller-->
+        <!--Followers View Controller-->
         <scene sceneID="92z-hh-hU5">
             <objects>
-                <viewController id="FD5-O6-QLh" sceneMemberID="viewController">
+                <viewController id="FD5-O6-QLh" customClass="FollowersViewController" customModule="GithubUsers" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u76-HX-TPM"/>
                         <viewControllerLayoutGuide type="bottom" id="MIB-oI-2yi"/>
@@ -227,9 +227,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y46-yX-pfo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y46-yX-pfo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserFollowers" rowHeight="104" id="MDh-B4-du4" customClass="FollowersCustomCell" customModule="GithubUsers" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="104"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MDh-B4-du4" id="E5v-2U-xlI">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="103"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrf-AI-jkD">
+                                                    <rect key="frame" x="522" y="41" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kbG-bU-dvH">
+                                                    <rect key="frame" x="8" y="8" width="120" height="87"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="J5L-iE-j5S"/>
+                                                        <constraint firstAttribute="height" constant="87" id="nBP-xS-xNu"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kbG-bU-dvH" firstAttribute="leading" secondItem="E5v-2U-xlI" secondAttribute="leading" constant="8" id="44S-En-HD9"/>
+                                                <constraint firstItem="kbG-bU-dvH" firstAttribute="top" secondItem="E5v-2U-xlI" secondAttribute="top" constant="8" id="9Mx-YC-d8T"/>
+                                                <constraint firstItem="vrf-AI-jkD" firstAttribute="top" secondItem="E5v-2U-xlI" secondAttribute="top" constant="41" id="Pqm-pr-UUt"/>
+                                                <constraint firstAttribute="trailing" secondItem="vrf-AI-jkD" secondAttribute="trailing" constant="36" id="aL8-Yb-cEi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImage" destination="kbG-bU-dvH" id="Pdw-5c-E12"/>
+                                            <outlet property="userName" destination="vrf-AI-jkD" id="7hs-di-BRL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="FD5-O6-QLh" id="IeN-Jz-uek"/>
+                                    <outlet property="delegate" destination="FD5-O6-QLh" id="fpP-3T-ZC0"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -240,6 +279,9 @@
                             <constraint firstAttribute="trailing" secondItem="Y46-yX-pfo" secondAttribute="trailing" id="i13-Et-FVU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Y46-yX-pfo" id="hrH-V1-Z2t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfO-dy-dsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

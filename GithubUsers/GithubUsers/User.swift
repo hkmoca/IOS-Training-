@@ -23,13 +23,11 @@ class User: Mappable {
     var gitHubAPIUrl: NSURL! {
         return NSURL(string: "https://api.github.com/users")
     }
-    var image: NSURL! {
+    var userImageUrl: NSURL! {
         return NSURL(string: "\(avatarImageStringUrl)")
     }
     
-    var userUrl: NSURL! {
-        return NSURL(string: "\(gitHubAPIUrl)/\(userLogin)")
-    }
+
 
     
     init() {

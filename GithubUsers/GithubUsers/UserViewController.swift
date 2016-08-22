@@ -22,9 +22,9 @@ class UserViewController: UIViewController {
     func displayUsersInfo() {
         
         let gitHubViewModel = GitHubViewModel()
-        gitHubViewModel.getUserInfo({ (users) in
+        gitHubViewModel.getUserInfo({ (user) in
             
-            self.userElements = users
+            self.userElements = user
             self.tableView.reloadData()
             },
                 onFailure: { (error) in
@@ -41,6 +41,8 @@ class UserViewController: UIViewController {
                 usersDetailsView.user = userElements[path!.row]
         }
     }
+    
+    
     
 }
 
@@ -66,7 +68,7 @@ extension UserViewController: UITableViewDataSource {
         
         let elementRow = userElements[indexPath.row]
         cell?.userName.text = elementRow.userLogin
-        cell?.avatarImage.af_setImageWithURL(elementRow.image)
+        cell?.avatarImage.af_setImageWithURL(elementRow.userImageUrl)
         
         
         return cell!

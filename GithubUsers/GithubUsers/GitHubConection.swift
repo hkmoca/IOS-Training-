@@ -33,8 +33,9 @@ class GitHubConection {
     func getUserAPIDetails (userLogin: User ,completion: (json: [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
         
         let gitHubConection = User()
-        let gitHubUserDetail = gitHubConection.gitHubAPIUrl
-        Alamofire.request(.GET, "\(gitHubUserDetail)/\(userLogin.userLogin)", parameters: nil)
+        let gitHubAPIURL = gitHubConection.gitHubAPIUrl
+        let gitHubURL = "\(gitHubAPIURL)/\(userLogin.userLogin)"
+        Alamofire.request(.GET, gitHubURL, parameters: nil)
             .responseJSON { response in
                 
                 switch response.result {
@@ -49,6 +50,24 @@ class GitHubConection {
     }
     
     
-    
+    func getUserFollowers (userLogin: User, compleation: (json:  [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
+        
+        let gitHubConection = User()
+        let gitHubAPIURL = gitHubConection.gitHubAPIUrl
+        let gitHubURL = "\(gitHubAPIURL)/\(userLogin.userLogin)/followers"
+        
+        Alamofire.request(.GET, gitHubURL, parameters: nil)
+            .responseJSON { response in
+                
+                switch response.result {
+                
+                case.Success(let JSON):
+                    compleation(json: JSON as! [[String: AnyObject]])
+                    
+                case.Failure(let ERROR):
+                    onFailure(error: ERROR)
+                }
+        }
+    }
     
 }
