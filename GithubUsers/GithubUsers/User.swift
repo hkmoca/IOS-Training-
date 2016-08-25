@@ -26,6 +26,10 @@ class User: Mappable {
         return NSURL(string: "\(avatarImageStringURL)")
     }
     
+    var searchURL: NSURL! {
+        return NSURL(string: "https://api.github.com/search/users?q=")
+    }
+    
     init() {
     
     }

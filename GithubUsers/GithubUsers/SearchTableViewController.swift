@@ -9,9 +9,9 @@
 import UIKit
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
-    
-let dogs = [""]
-    var filteredDogs = [String]()
+    var userElements = [User]()
+
+
     
     var searchController: UISearchController!
     var resultsController = UITableViewController()
@@ -28,14 +28,25 @@ let dogs = [""]
         definesPresentationContext = true
     }
     
+    func displaySearchResult() {
+        let tosearch = self.searchController.searchBar.text!
+        let gitHubViewModel = GitHubViewModel()
+        gitHubViewModel.getSearchURL(tosearch, completion: { (searchResult) in
+            
+            self.userElements = searchResult
+            self.tableView.reloadData()
+            self.resultsController.tableView.reloadData()
+            },
+                                    onFailure: { (error) in
+                                        print(error)
+            }
+        )
+    }
+    
 
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        self.filteredDogs = self.dogs.filter { (dog: String) -> Bool in
-            if dog.containsString(self.searchController.searchBar.text!) {
-                return true
-            } else {
-                return false
-            }
+        if self.searchController.searchBar.text?.lowercaseString != "" {
+            displaySearchResult()
         }
         
         self.resultsController.tableView.reloadData()
@@ -46,15 +57,14 @@ let dogs = [""]
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableView {
-            return dogs.count
+            return self.userElements.count
         } else {
-            return self.filteredDogs.count
+            return self.userElements.count
         }
     }
 
@@ -62,9 +72,9 @@ let dogs = [""]
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if tableView == self.tableView {
-        cell.textLabel?.text = self.dogs[indexPath.row]
+        cell.textLabel?.text = self.userElements[indexPath.row].userLogin
         } else{
-        cell.textLabel?.text = self.filteredDogs[indexPath.row]
+        cell.textLabel?.text = self.userElements[indexPath.row].userLogin
         }
         return cell
     }

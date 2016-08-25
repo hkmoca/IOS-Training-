@@ -62,6 +62,7 @@ class GitHubConection {
                 switch response.result {
                 
                 case.Success(let JSON):
+                  
                     compleation(json: JSON as! [[String: AnyObject]])
                     
                 case.Failure(let ERROR):
@@ -70,4 +71,26 @@ class GitHubConection {
         }
     }
     
+    func getSearchResults (searchUser: String, compleation: (json:  [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
+        
+        let gitHubConection = User()
+        let gitHubSearchURL = gitHubConection.searchURL
+        let gitHubURL = "\(gitHubSearchURL)\(searchUser)"
+        
+        Alamofire.request(.GET, gitHubURL, parameters: nil)
+            .responseJSON { response in
+                
+                switch response.result {
+                    
+                case.Success(let JSON):
+                      if JSON is [String: AnyObject] {
+                    compleation(json: JSON as! [String: AnyObject])
+                      } else {
+                        print("Error")
+                    }
+                case.Failure(let ERROR):
+                    onFailure(error: ERROR)
+                }
+        }
+    }
 }

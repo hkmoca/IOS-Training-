@@ -49,4 +49,23 @@ class GitHubViewModel {
                 }
         )
     }
+    
+    func getSearchURL(searchUser: String, completion: (searchResult: [User]) -> Void, onFailure: (error: NSError) -> Void){
+        
+        let gitHubConection = GitHubConection()
+        gitHubConection.getSearchResults(searchUser, compleation: { (json) in
+            
+            if let searchResult: [User] = (Mapper<User>().mapArray(json["items"])){
+                completion(searchResult: searchResult)
+            } else {
+        
+            }
+            
+            
+            },
+                onFailure: { (error) in
+                 onFailure(error: error)
+            }
+        )
+    }
 }
