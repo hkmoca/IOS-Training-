@@ -58,7 +58,7 @@ class GitHubViewModel {
             if let searchResult: [User] = (Mapper<User>().mapArray(json["items"])){
                 completion(searchResult: searchResult)
             } else {
-        
+                print("wait!! to fast..!")
             }
             
             

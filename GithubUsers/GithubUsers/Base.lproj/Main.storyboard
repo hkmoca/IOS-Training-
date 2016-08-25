@@ -364,6 +364,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JLY-WG-ZlF" kind="show" identifier="searchDetails" id="tD1-Dz-j40"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -401,4 +404,7 @@
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tD1-Dz-j40"/>
+    </inferredMetricsTieBreakers>
 </document>

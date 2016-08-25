@@ -14,14 +14,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     
     var searchController: UISearchController!
-    var resultsController = UITableViewController()
+  //  var resultsController = UITableViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.resultsController.tableView.dataSource = self
-        self.resultsController.tableView.delegate = self
-        self.searchController = UISearchController(searchResultsController: self.resultsController)
+      //  self.resultsController.tableView.dataSource = self
+      //  self.resultsController.tableView.delegate = self
+        self.searchController = UISearchController(searchResultsController: nil)
         self.tableView.tableHeaderView = self.searchController.searchBar
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
@@ -35,7 +35,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             
             self.userElements = searchResult
             self.tableView.reloadData()
-            self.resultsController.tableView.reloadData()
+        //    self.resultsController.tableView.reloadData()
             },
                                     onFailure: { (error) in
                                         print(error)
@@ -43,14 +43,25 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         )
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "searchDetails" {
+            
+            let usersDetailsView = segue.destinationViewController as! UserDetailViewController
+            let path = tableView.indexPathForSelectedRow
+            usersDetailsView.user = userElements[path!.row]
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("searchDetails", sender: nil)
+        
+    }
 
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         if self.searchController.searchBar.text?.lowercaseString != "" {
             displaySearchResult()
         }
-        
-        self.resultsController.tableView.reloadData()
-        
+       
     }
    
 
