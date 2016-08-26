@@ -26,14 +26,27 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     func displaySearchResult() {
         let tosearch = self.searchController.searchBar.text!
+        //var alertSend = true
         let gitHubViewModel = GitHubViewModel()
         gitHubViewModel.getSearchURL(tosearch, completion: { (searchResult) in
             
             self.userElements = searchResult
             self.tableView.reloadData()
-            },
+        },
                  onFailure: { (error) in
                      print(error)
+            },
+                 
+            alert: { (sendAlert) in
+                    if sendAlert {
+                        let alert = UIAlertController(title: "Wait!", message: "Api rate limit exceeded, wait 1 min to continue!", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        self.searchController.searchBar.text? = ""
+                        
+                        
+                        
+                    }
             }
         )
     }

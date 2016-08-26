@@ -50,7 +50,7 @@ class GitHubViewModel {
         )
     }
     
-    func getSearchURL(searchUser: String, completion: (searchResult: [User]) -> Void, onFailure: (error: NSError) -> Void){
+    func getSearchURL(searchUser: String, completion: (searchResult: [User]) -> Void, onFailure: (error: NSError) -> Void, alert: (sendAlert: Bool) -> Void){
         
         let gitHubConection = GitHubConection()
         gitHubConection.getSearchResults(searchUser, compleation: { (json) in
@@ -58,9 +58,10 @@ class GitHubViewModel {
             if let searchResult: [User] = (Mapper<User>().mapArray(json["items"])){
                 completion(searchResult: searchResult)
             } else {
-                print("wait!! to fast..!")
-                
-            }
+                print("api rate limit exceeded, wait 1 min to continue!")
+                alert(sendAlert: true)
+                }
+            
             
             },
                 onFailure: { (error) in

@@ -19,11 +19,11 @@ class FollowersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayUserFollowers()
+        getUserFollowers()
     }
     
     
-    func displayUserFollowers() {
+    func getUserFollowers() {
         let gitHubViewModel = GitHubViewModel()
 
         gitHubViewModel.getUserFollowers(user, completion:{ (userFollowers) in
