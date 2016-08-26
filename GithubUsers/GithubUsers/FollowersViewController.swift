@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Alamofire
 import AlamofireImage
 
 class FollowersViewController: UIViewController {
@@ -26,12 +25,12 @@ class FollowersViewController: UIViewController {
     
     func displayUserFollowers() {
         let gitHubViewModel = GitHubViewModel()
-        let userLogin = user
 
-        gitHubViewModel.getUserFollowers(userLogin, completion:{ (userFollowers) in
+        gitHubViewModel.getUserFollowers(user, completion:{ (userFollowers) in
             
             self.followers = userFollowers
             self.tableView.reloadData()
+            
             },
                     onFailure: { (error) in
                     print(error)

@@ -24,10 +24,10 @@ class GitHubViewModel {
         )
     }
     
-    func getUserInfoDetail(userLogin: User, completion: (userDetails: User) -> Void, onFailure: (error: NSError) -> Void) {
+    func getUserInfoDetail(user: User, completion: (userDetails: User) -> Void, onFailure: (error: NSError) -> Void) {
         
         let gitHubConection = GitHubConection()
-            gitHubConection.getUserAPIDetails(userLogin, completion: { (json) in
+            gitHubConection.getUserAPIDetails(user, completion: { (json) in
             let userDetails = Mapper<User>().map(json)
             completion(userDetails: userDetails!)
             },
@@ -37,10 +37,10 @@ class GitHubViewModel {
         )
     }
     
-    func getUserFollowers(userLogin: User, completion: (userFollowers: [User]) -> Void, onFailure: (error: NSError) -> Void){
+    func getUserFollowers(user: User, completion: (userFollowers: [User]) -> Void, onFailure: (error: NSError) -> Void){
         
         let gitHubConection = GitHubConection()
-            gitHubConection.getUserFollowers(userLogin, compleation: { (json) in
+            gitHubConection.getUserFollowers(user, compleation: { (json) in
             let userFollowers: Array<User> = Mapper<User>().mapArray(json)!
             completion(userFollowers: userFollowers)
             },
@@ -59,13 +59,13 @@ class GitHubViewModel {
                 completion(searchResult: searchResult)
             } else {
                 print("wait!! to fast..!")
+                
             }
-            
             
             },
                 onFailure: { (error) in
                  onFailure(error: error)
-            }
+                }
         )
     }
 }

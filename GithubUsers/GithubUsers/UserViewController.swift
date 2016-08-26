@@ -12,7 +12,7 @@ import AlamofireImage
 
 class UserViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var userElements = [User]()
+    var userInfo = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class UserViewController: UIViewController {
         let gitHubViewModel = GitHubViewModel()
         gitHubViewModel.getUserInfo({ (user) in
             
-            self.userElements = user
+            self.userInfo = user
             self.tableView.reloadData()
             },
                 onFailure: { (error) in
@@ -38,7 +38,7 @@ class UserViewController: UIViewController {
             
             let usersDetailsView = segue.destinationViewController as! UserDetailViewController
             let path = tableView.indexPathForSelectedRow
-                usersDetailsView.user = userElements[path!.row]
+                usersDetailsView.user = userInfo[path!.row]
         }
     }
 }
@@ -50,13 +50,13 @@ extension UserViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userElements.count
+        return userInfo.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("UsersCell", forIndexPath: indexPath) as? CustomCell
-        let user = userElements[indexPath.row]
+        let user = userInfo[indexPath.row]
         cell?.userName.text = user.userLogin
         cell?.avatarImage.af_setImageWithURL(user.userImageUrl)
         return cell!

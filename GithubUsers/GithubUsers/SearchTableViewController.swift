@@ -14,13 +14,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     
     var searchController: UISearchController!
-  //  var resultsController = UITableViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      //  self.resultsController.tableView.dataSource = self
-      //  self.resultsController.tableView.delegate = self
         self.searchController = UISearchController(searchResultsController: nil)
         self.tableView.tableHeaderView = self.searchController.searchBar
         self.searchController.searchResultsUpdater = self
@@ -35,10 +31,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             
             self.userElements = searchResult
             self.tableView.reloadData()
-        //    self.resultsController.tableView.reloadData()
             },
-                                    onFailure: { (error) in
-                                        print(error)
+                 onFailure: { (error) in
+                     print(error)
             }
         )
     }
@@ -50,11 +45,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             let path = tableView.indexPathForSelectedRow
             usersDetailsView.user = userElements[path!.row]
         }
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("searchDetails", sender: nil)
-        
     }
 
     func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -72,21 +62,15 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.tableView {
+
             return self.userElements.count
-        } else {
-            return self.userElements.count
-        }
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        if tableView == self.tableView {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellSearch", forIndexPath: indexPath)
         cell.textLabel?.text = self.userElements[indexPath.row].userLogin
-        } else{
-        cell.textLabel?.text = self.userElements[indexPath.row].userLogin
-        }
+
         return cell
     }
   

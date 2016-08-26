@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 import ObjectMapper
 
 class User: Mappable {

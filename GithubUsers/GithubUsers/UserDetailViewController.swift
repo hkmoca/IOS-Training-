@@ -24,21 +24,22 @@ class UserDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayUserInfo()
+        getUserDetails()
     }
     
-    func displayUserInfo() {
-        let gitHubViewModel = GitHubViewModel()
-        let userLogin = user
+    func getUserDetails() {
         
-            gitHubViewModel.getUserInfoDetail (userLogin, completion: { (userDetails) in
+        let gitHubViewModel = GitHubViewModel()
+    
+        
+            gitHubViewModel.getUserInfoDetail (user, completion: { (userDetails) in
             
             self.userName.text  = userDetails.userName
             self.userLoginName.text = userDetails.userLogin
             self.followers.text = String(userDetails.followers)
             self.following.text = String(userDetails.following)
             self.repos.text =     String(userDetails.publicRepos)
-            self.userImage.af_setImageWithURL(self.user.userImageUrl)
+            self.userImage.af_setImageWithURL(userDetails.userImageUrl)
             },
              onFailure: { (error) in
               print(error)
@@ -51,6 +52,8 @@ class UserDetailViewController: UIViewController {
             
             let usersDetailsView = segue.destinationViewController as! FollowersViewController
             usersDetailsView.user = user
+            
+           
             
         }
     }
