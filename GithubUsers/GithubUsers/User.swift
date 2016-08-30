@@ -18,15 +18,10 @@ class User: Mappable {
     var publicRepos: Int = 0
     var avatarImageStringURL: String = ""
     
-    var gitHubAPIUrl: NSURL! {
-        return NSURL(string: "https://api.github.com/users")
-    }
+    let gitHubAPIUrl = NSURL(string: "https://api.github.com/users")
+    
     var userImageUrl: NSURL! {
         return NSURL(string: "\(avatarImageStringURL)")
-    }
-    
-    var searchURL: NSURL! {
-        return NSURL(string: "https://api.github.com/search/users?q=")
     }
     
     init() {

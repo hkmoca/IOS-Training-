@@ -11,11 +11,11 @@ import Alamofire
 
 class GitHubConection {
     
+    let gitHubURL = NSURL(string: "https://api.github.com/users")!
     
-    func getUserAPI (completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
     
-        let gitHubConection = User()
-        let gitHubURL = gitHubConection.gitHubAPIUrl
+    func getUser(completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
+    
         Alamofire.request(.GET, gitHubURL, parameters: nil)
             .responseJSON { response in
                 
@@ -30,12 +30,10 @@ class GitHubConection {
         }
     }
     
-    func getUserAPIDetails (user: User ,completion: (json: [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
+    func getUserDetails (user: User ,completion: (json: [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        let gitHubConection = User()
-        let gitHubAPIURL = gitHubConection.gitHubAPIUrl
-        let gitHubURL = "\(gitHubAPIURL)/\(user.userLogin)"
-        Alamofire.request(.GET, gitHubURL, parameters: nil)
+        let URL = "\(gitHubURL)/\(user.userLogin)"
+        Alamofire.request(.GET, URL, parameters: nil)
             .responseJSON { response in
                 
                 switch response.result {
@@ -52,11 +50,9 @@ class GitHubConection {
     
     func getUserFollowers (user: User, compleation: (json:  [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        let gitHubConection = User()
-        let gitHubAPIURL = gitHubConection.gitHubAPIUrl
-        let gitHubURL = "\(gitHubAPIURL)/\(user.userLogin)/followers"
+        let URL = "\(gitHubURL)/\(user.userLogin)/followers"
         
-        Alamofire.request(.GET, gitHubURL, parameters: nil)
+        Alamofire.request(.GET, URL, parameters: nil)
             .responseJSON { response in
                 
                 switch response.result {
@@ -73,11 +69,11 @@ class GitHubConection {
     
     func getSearchResults (searchUser: String, compleation: (json:  [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        let gitHubConection = User()
-        let gitHubSearchURL = gitHubConection.searchURL
-        let gitHubURL = "\(gitHubSearchURL)\(searchUser)"
         
-        Alamofire.request(.GET, gitHubURL, parameters: nil)
+        let searchURL = NSURL(string: "https://api.github.com/search/users?q=")!
+        let URL = "\(searchURL)\(searchUser)"
+        
+        Alamofire.request(.GET, URL, parameters: nil)
             .responseJSON { response in
                 
                 switch response.result {
