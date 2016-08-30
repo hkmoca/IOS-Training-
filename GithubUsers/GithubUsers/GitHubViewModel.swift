@@ -12,7 +12,7 @@ import ObjectMapper
 class GitHubViewModel {
     let gitHubConection = GitHubConection()
     
-    func getUserInfo(completion: (user: [User]) -> Void, onFailure: (error: NSError) -> Void) {
+    func getUsers(completion: (user: [User]) -> Void, onFailure: (error: NSError) -> Void) {
        
         
             gitHubConection.getUser({ (json) in
@@ -25,7 +25,7 @@ class GitHubViewModel {
         )
     }
     
-    func getUserInfoDetail(user: User, completion: (userDetails: User) -> Void, onFailure: (error: NSError) -> Void) {
+    func getUserDetails(user: User, completion: (userDetails: User) -> Void, onFailure: (error: NSError) -> Void) {
         
             gitHubConection.getUserDetails(user, completion: { (json) in
             let userDetails = Mapper<User>().map(json)

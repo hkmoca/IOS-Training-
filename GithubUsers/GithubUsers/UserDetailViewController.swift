@@ -32,14 +32,15 @@ class UserDetailViewController: UIViewController {
         let gitHubViewModel = GitHubViewModel()
     
         
-            gitHubViewModel.getUserInfoDetail (user, completion: { (userDetail) in
+            gitHubViewModel.getUserDetails (user, completion: { (user) in
             
-            self.userName.text  = userDetail.userName
-            self.userLoginName.text = userDetail.userLogin
-            self.followers.text = String(userDetail.followers)
-            self.following.text = String(userDetail.following)
-            self.repos.text =     String(userDetail.publicRepos)
-            self.userImage.af_setImageWithURL(userDetail.userImageUrl)
+            self.userName.text  = user.userName
+            self.userLoginName.text = user.userLogin
+            self.followers.text = String(user.followers)
+            self.following.text = String(user.following)
+            self.repos.text =     String(user.publicRepos)
+            self.userImage.af_setImageWithURL(user.userImageUrl)
+                
             },
              onFailure: { (error) in
               print(error)

@@ -22,7 +22,7 @@ class UserViewController: UIViewController {
     func displayUsersInfo() {
         
         let gitHubViewModel = GitHubViewModel()
-        gitHubViewModel.getUserInfo({ (users) in
+        gitHubViewModel.getUsers({ (users) in
             
             self.usersInfo = users
             self.tableView.reloadData()
