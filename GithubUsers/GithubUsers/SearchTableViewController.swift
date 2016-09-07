@@ -25,9 +25,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
     
     func displaySearchResult() {
-        let tosearch = self.searchController.searchBar.text!
+        let search = self.searchController.searchBar.text!
         let gitHubViewModel = GitHubViewModel()
-        gitHubViewModel.getSearchResult(tosearch, completion: { (searchResult) in
+        gitHubViewModel.getSearchResult(search, completion: { (searchResult) in
             
             self.userElements = searchResult
             self.tableView.reloadData()
