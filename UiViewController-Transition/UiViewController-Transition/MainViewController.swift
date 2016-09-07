@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
+    var window: UIWindow?
+    var initialViewController :UIViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,23 +25,15 @@ class ViewController: UIViewController {
 
     @IBAction func toSecondStoryBoard(sender: AnyObject) {
     
-        //presentViewController( UIStoryboard(name: "Second", bundle: nil).instantiateViewControllerWithIdentifier("Second") as UIViewController, animated: true, completion: nil)
+        // switch root view controllers in AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.switchViewControllers()
         
 
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        initialViewController  = MainViewController(nibName:"MainViewController",bundle:nil)
-        
-        let frame = UIScreen.mainScreen().bounds
-        window = UIWindow(frame: frame)
-        
-        window!.rootViewController = initialViewController
-        window!.makeKeyAndVisible()
-        
-        return true
-    }
+   
+    
 
 }
 

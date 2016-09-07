@@ -9,15 +9,16 @@
 import Foundation
 import RealmSwift
 
-class RealmObject: Object {
-    
-    dynamic var name = ""
-    dynamic var owner: Person?
-
-}
 
 class Person: Object {
 
     dynamic var name = ""
+    dynamic var lastName = ""
+    dynamic var email =  ""
     dynamic var birthdate = NSDate(timeIntervalSinceReferenceDate: 1)
+    
+    
+     override static func primaryKey() -> String? {
+        return "email"
+    }
 }

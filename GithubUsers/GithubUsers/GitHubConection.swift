@@ -11,12 +11,9 @@ import Alamofire
 
 class GitHubConection {
     
+    func getUser(completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
     
-    func getUserAPI (completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
-    
-        let gitHubConection = User()
-        let gitHubURL = gitHubConection.gitHubAPIUrl
-        Alamofire.request(.GET, gitHubURL, parameters: nil)
+        Alamofire.request(Router.getUsers())
             .responseJSON { response in
                 
                 switch response.result {
@@ -30,12 +27,9 @@ class GitHubConection {
         }
     }
     
-    func getUserAPIDetails (user: User ,completion: (json: [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
+    func getUserDetails (user: User ,completion: (json: [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        let gitHubConection = User()
-        let gitHubAPIURL = gitHubConection.gitHubAPIUrl
-        let gitHubURL = "\(gitHubAPIURL)/\(user.userLogin)"
-        Alamofire.request(.GET, gitHubURL, parameters: nil)
+        Alamofire.request(Router.getUserDetail(user: user.userLogin))
             .responseJSON { response in
                 
                 switch response.result {
@@ -52,11 +46,7 @@ class GitHubConection {
     
     func getUserFollowers (user: User, compleation: (json:  [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        let gitHubConection = User()
-        let gitHubAPIURL = gitHubConection.gitHubAPIUrl
-        let gitHubURL = "\(gitHubAPIURL)/\(user.userLogin)/followers"
-        
-        Alamofire.request(.GET, gitHubURL, parameters: nil)
+        Alamofire.request(Router.getUserFollowers(user: user.userLogin))
             .responseJSON { response in
                 
                 switch response.result {
@@ -73,11 +63,7 @@ class GitHubConection {
     
     func getSearchResults (searchUser: String, compleation: (json:  [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        let gitHubConection = User()
-        let gitHubSearchURL = gitHubConection.searchURL
-        let gitHubURL = "\(gitHubSearchURL)\(searchUser)"
-        
-        Alamofire.request(.GET, gitHubURL, parameters: nil)
+        Alamofire.request(SearchRouter.getSearch(user: searchUser))
             .responseJSON { response in
                 
                 switch response.result {

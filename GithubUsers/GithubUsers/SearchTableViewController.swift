@@ -26,9 +26,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     func displaySearchResult() {
         let tosearch = self.searchController.searchBar.text!
-        //var alertSend = true
         let gitHubViewModel = GitHubViewModel()
-        gitHubViewModel.getSearchURL(tosearch, completion: { (searchResult) in
+        gitHubViewModel.getSearchResult(tosearch, completion: { (searchResult) in
             
             self.userElements = searchResult
             self.tableView.reloadData()
@@ -61,7 +60,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
 
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        if self.searchController.searchBar.text?.lowercaseString != "" {
+        if self.searchController.searchBar.text != "" {
             displaySearchResult()
         }
        

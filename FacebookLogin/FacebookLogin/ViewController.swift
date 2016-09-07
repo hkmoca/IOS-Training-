@@ -38,14 +38,39 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         
 
-        let loginButton = FBSDKLoginButton()
-        loginButton.center = CGPoint(x: view.center.x, y: 400)
-        loginButton.delegate = self
-        self.view.addSubview(loginButton)
+//        let loginButton = FBSDKLoginButton()
+//        loginButton.center = CGPoint(x: view.center.x, y: 400)
+//        loginButton.delegate = self
+//        self.view.addSubview(loginButton)
+        
+        
+        let btnSize: CGFloat = 100
+        let btnLogin = UIButton(frame: CGRectMake(0, 0, btnSize, btnSize))
+        btnLogin.center = CGPoint(x: view.center.x, y: 500)
+        btnLogin.setImage(UIImage (named: "fb-art"), forState: UIControlState.Normal)
+        btnLogin.addTarget(self, action: #selector(btnLoginPressed), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        btnLogin.layer.cornerRadius = btnSize/2
+        btnLogin.layer.masksToBounds = true
+        btnLogin.layer.borderColor = UIColor.blackColor().CGColor
+        btnLogin.layer.borderWidth = 2
+        
+        view.addSubview(btnLogin)
         
         getFacebookUserInfo()
         
         
+    }
+    
+    
+    func btnLoginPressed() {
+        let loginManner = FBSDKLoginManager()
+        loginManner.logInWithReadPermissions( ["public_profile"], fromViewController: self, handler: {(response: FBSDKLoginManagerLoginResult!, NSError) in
+            if (NSError == nil) {
+                print("No Error")
+                self.getFacebookUserInfo()
+            }
+            })
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)  {

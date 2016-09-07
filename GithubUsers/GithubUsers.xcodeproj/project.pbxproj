@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		15087BEE1D6CE3C9001E62FE /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15087BED1D6CE3C9001E62FE /* SearchTableViewController.swift */; };
+		155079881D78A28D007E5356 /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155079871D78A28D007E5356 /* UsersRouter.swift */; };
+		1550798A1D78C37A007E5356 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155079891D78C37A007E5356 /* SearchRouter.swift */; };
 		15E2ED141D64F0C700B04E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED131D64F0C700B04E04 /* AppDelegate.swift */; };
 		15E2ED161D64F0C700B04E04 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2ED151D64F0C700B04E04 /* UserViewController.swift */; };
 		15E2ED1B1D64F0C700B04E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E2ED191D64F0C700B04E04 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		15087BED1D6CE3C9001E62FE /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		155079871D78A28D007E5356 /* UsersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
+		155079891D78C37A007E5356 /* SearchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		15E2ED101D64F0C700B04E04 /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E2ED131D64F0C700B04E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15E2ED151D64F0C700B04E04 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 				15E2ED2C1D6526A500B04E04 /* User.swift */,
 				15E2ED2E1D6533F000B04E04 /* GitHubViewModel.swift */,
 				15E2ED2A1D65265600B04E04 /* GitHubConection.swift */,
+				155079871D78A28D007E5356 /* UsersRouter.swift */,
+				155079891D78C37A007E5356 /* SearchRouter.swift */,
 			);
 			path = GithubUsers;
 			sourceTree = "<group>";
@@ -234,7 +240,9 @@
 			files = (
 				15E2ED351D6A324A00B04E04 /* FollowersViewController.swift in Sources */,
 				15087BEE1D6CE3C9001E62FE /* SearchTableViewController.swift in Sources */,
+				1550798A1D78C37A007E5356 /* SearchRouter.swift in Sources */,
 				15E2ED141D64F0C700B04E04 /* AppDelegate.swift in Sources */,
+				155079881D78A28D007E5356 /* UsersRouter.swift in Sources */,
 				15E2ED2B1D65265600B04E04 /* GitHubConection.swift in Sources */,
 				15E2ED281D65216F00B04E04 /* CustomCell.swift in Sources */,
 				15E2ED2D1D6526A500B04E04 /* User.swift in Sources */,
