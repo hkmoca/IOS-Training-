@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import RealmSwift
+
+class Person: Object {
+    dynamic var name = ""
+    dynamic var email = ""
+    dynamic var FbID = ""
+    
+    
+
+    override static func primaryKey() -> String? {
+        return "email"
+    }
+}

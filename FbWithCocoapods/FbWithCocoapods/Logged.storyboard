@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Logged View Controller-->
+        <scene sceneID="PCr-wT-t0A">
+            <objects>
+                <viewController storyboardIdentifier="Logged" id="K3f-g3-XCB" customClass="LoggedViewController" customModule="FbWithCocoapods" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GkA-KE-ibI"/>
+                        <viewControllerLayoutGuide type="bottom" id="AQa-PF-V0n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VOd-z8-MeC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="lbx-cb-dXL">
+                                <rect key="frame" x="279" y="251" width="42" height="83"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yie-Fz-m3R">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znB-Bf-LQY">
+                                        <rect key="frame" x="0.0" y="62" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sb6-Jz-gga">
+                                <rect key="frame" x="249" y="512" width="102" height="59"/>
+                                <color key="backgroundColor" red="0.18744488745474541" green="0.61311340826369598" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="N5X-EX-fdd"/>
+                                    <constraint firstAttribute="width" constant="102" id="bjf-C6-itY"/>
+                                </constraints>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="LogOut:" destination="K3f-g3-XCB" eventType="touchUpInside" id="PAQ-Ry-3WH"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CBe-ly-r41">
+                                <rect key="frame" x="180" y="84" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="mlb-5n-NgA"/>
+                                    <constraint firstAttribute="width" constant="240" id="nba-h5-OBV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CBe-ly-r41" firstAttribute="centerX" secondItem="VOd-z8-MeC" secondAttribute="centerX" id="4Dn-2a-oUs"/>
+                            <constraint firstItem="AQa-PF-V0n" firstAttribute="top" secondItem="Sb6-Jz-gga" secondAttribute="bottom" constant="29" id="JSh-hW-zgB"/>
+                            <constraint firstItem="lbx-cb-dXL" firstAttribute="centerX" secondItem="VOd-z8-MeC" secondAttribute="centerX" id="Kyp-9Z-B4T"/>
+                            <constraint firstItem="Sb6-Jz-gga" firstAttribute="centerX" secondItem="VOd-z8-MeC" secondAttribute="centerX" id="efu-ed-sfe"/>
+                            <constraint firstItem="CBe-ly-r41" firstAttribute="top" secondItem="GkA-KE-ibI" secondAttribute="bottom" constant="64" id="qTt-Yg-aVc"/>
+                            <constraint firstItem="lbx-cb-dXL" firstAttribute="top" secondItem="CBe-ly-r41" secondAttribute="bottom" constant="39" id="zqG-IN-11H"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="email" destination="znB-Bf-LQY" id="yQW-fc-xMu"/>
+                        <outlet property="imageView" destination="CBe-ly-r41" id="Jyr-eW-Xbg"/>
+                        <outlet property="name" destination="Yie-Fz-m3R" id="Cik-fy-DFb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Wd-w9-Z8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="412" y="418"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,13 @@
+platform :ios, '9.0'
+use_frameworks!
+
+
+target 'FbWithCocoapods' do
+  
+  
+  pod 'FBSDKLoginKit', '~> 4.14'
+  pod 'FBSDKCoreKit', '~> 4.14'
+  pod 'FBSDKShareKit', '~> 4.14'
+  pod 'RealmSwift'
+
+end
