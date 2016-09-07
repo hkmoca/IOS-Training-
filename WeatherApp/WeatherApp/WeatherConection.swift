@@ -14,9 +14,7 @@ class WeatherConection {
 
     func getWeather(completion: (json: [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
         
-    let mainPageWeather = NSURL(string: "http://api.openweathermap.org/data/2.5/weather?lat=29.07&lon=-110.97&appid=3f3a608541a999f9d309a7f2b3f36ac7&units=metric")!
-    
-    Alamofire.request(.GET, mainPageWeather, parameters: nil)
+        Alamofire.request(Router.getWeather())
         .responseJSON { response in
             
                 switch response.result {
@@ -32,10 +30,8 @@ class WeatherConection {
     
     
     func getWeatherForecast(completion: (json: [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
-    
-        let forecastPageWeather = NSURL(string: "http://api.openweathermap.org/data/2.5/forecast?lat=29.07&lon=-110.97&appid=3f3a608541a999f9d309a7f2b3f36ac7&units=metric&cnt=40")!
 
-        Alamofire.request(.GET, forecastPageWeather, parameters: nil)
+        Alamofire.request(Router.getForecast())
             .responseJSON { response in
                 
                 switch response.result {

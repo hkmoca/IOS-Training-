@@ -24,15 +24,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.show()
-        getWeatherInfo()
+        
         
     }
     
-    @IBAction func reloadButton(sender: AnyObject) {
-        
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        SVProgressHUD.show()
         getWeatherInfo()
-    
     }
     
     func getWeatherInfo() {

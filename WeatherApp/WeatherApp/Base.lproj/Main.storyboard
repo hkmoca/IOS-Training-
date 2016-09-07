@@ -88,18 +88,7 @@
                             <constraint firstAttribute="trailing" secondItem="gCU-qa-uf2" secondAttribute="trailing" constant="20" id="sAm-pW-A6F"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eKj-qc-Gdd">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="kbi-pw-mvH">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Ll-3c-3TU">
-                                <rect key="frame" x="535" y="6" width="45" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="refresh"/>
-                                <connections>
-                                    <action selector="reloadButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lKo-T1-XMy"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="eKj-qc-Gdd"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="6dG-Tr-2d2" id="ZzH-jA-qDN"/>
                         <outlet property="imageIcon" destination="dEL-Ub-R7G" id="0xF-Xe-RnC"/>
@@ -239,7 +228,4 @@
             <point key="canvasLocation" x="2891" y="400"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="refresh" width="48" height="48"/>
-    </resources>
 </document>
