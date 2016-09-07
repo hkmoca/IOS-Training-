@@ -11,12 +11,9 @@ import Alamofire
 
 class GitHubConection {
     
-    let gitHubURL = NSURL(string: "https://api.github.com/users")!
-    
-    
     func getUser(completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
     
-        Alamofire.request(.GET, gitHubURL, parameters: nil)
+        Alamofire.request(Router.getUsers())
             .responseJSON { response in
                 
                 switch response.result {
@@ -32,8 +29,7 @@ class GitHubConection {
     
     func getUserDetails (user: User ,completion: (json: [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        let URL = "\(gitHubURL)/\(user.userLogin)"
-        Alamofire.request(.GET, URL, parameters: nil)
+        Alamofire.request(Router.getUserDetail(user: user.userLogin))
             .responseJSON { response in
                 
                 switch response.result {
@@ -50,9 +46,7 @@ class GitHubConection {
     
     func getUserFollowers (user: User, compleation: (json:  [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        let URL = "\(gitHubURL)/\(user.userLogin)/followers"
-        
-        Alamofire.request(.GET, URL, parameters: nil)
+        Alamofire.request(Router.getUserFollowers(user: user.userLogin))
             .responseJSON { response in
                 
                 switch response.result {
@@ -69,11 +63,7 @@ class GitHubConection {
     
     func getSearchResults (searchUser: String, compleation: (json:  [String: AnyObject]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        
-        let searchURL = NSURL(string: "https://api.github.com/search/users?q=")!
-        let URL = "\(searchURL)\(searchUser)"
-        
-        Alamofire.request(.GET, URL, parameters: nil)
+        Alamofire.request(SearchRouter.getSearch(user: searchUser))
             .responseJSON { response in
                 
                 switch response.result {

@@ -18,7 +18,7 @@ class User: Mappable {
     var publicRepos: Int = 0
     var avatarImageStringURL: String = ""
     
-    let gitHubAPIUrl = NSURL(string: "https://api.github.com/users")
+   
     
     var userImageUrl: NSURL! {
         return NSURL(string: "\(avatarImageStringURL)")
