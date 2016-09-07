@@ -51,10 +51,10 @@ enum Router: URLRequestConvertible {
             
         case .getForecast:
             let parameters = [
-            "lat": 29.07,
-            "lon": -110.97,
+            "lat": "29.07",
+            "lon": "-110.97",
             "appid": "3f3a608541a999f9d309a7f2b3f36ac7",
-            "units": "metric",
+            "units": "imperial",
             "cnt": 40,
             ]
             return encoding.encode(mutableURLRequest, parameters: parameters).0

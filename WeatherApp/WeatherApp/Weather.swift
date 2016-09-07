@@ -12,12 +12,12 @@ import ObjectMapper
 
 class Weather: Mappable {
     
-    var temperature = 0.00
-    var tempMax = 0.00
-    var tempMin = 0.00
+    var temperature = 0.0
+    var tempMax = 0.0
+    var tempMin = 0.0
     var descriptionWeather: String = ""
     var imageIcon: String = ""
-    var dateTime = 0.00
+    var dateTime = 0.0
     var urlIcon: NSURL! {
         return NSURL(string: "http://openweathermap.org/img/w/\(imageIcon).png")
     }
