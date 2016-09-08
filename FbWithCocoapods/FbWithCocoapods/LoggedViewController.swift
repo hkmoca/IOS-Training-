@@ -14,6 +14,9 @@ import AlamofireImage
 class LoggedViewController: UIViewController {
     let realm = try! Realm()
     let loginManager = FBSDKLoginManager()
+    
+    
+    
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
@@ -21,10 +24,12 @@ class LoggedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-           let person = realm.objects(Person.self)
-            name.text = person[0].name
-            email.text = person[0].email
-            self.imageView.af_setImageWithURL(person[0].profileImageURL)
+           let persons = realm.objects(Person.self)
+        
+        let person = persons[0] as Person
+            name.text = person.name
+            email.text = person.email
+            self.imageView.af_setImageWithURL(person.profileImageURL)
     }
 
     @IBAction func LogOut(sender: AnyObject) {
@@ -36,7 +41,7 @@ class LoggedViewController: UIViewController {
         }
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.switchBack()
+        appDelegate.switchToLogin()
         
     }
 }

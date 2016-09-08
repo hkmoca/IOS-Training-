@@ -15,10 +15,14 @@ class LoginViewController: UIViewController {
     let loginManager = FBSDKLoginManager()
     var imageView : UIImageView!
     var logStateLabel: UILabel!
+    let realm = try! Realm()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        
         
         imageView = UIImageView(frame: CGRectMake(0, 0, 100, 100))
         imageView.center = CGPoint(x: view.center.x, y: 200)
@@ -90,7 +94,7 @@ class LoginViewController: UIViewController {
                 print(realm.configuration.fileURL)
                 
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.switchviewController()
+                appDelegate.switchToLogged()
                 
                 
             })
