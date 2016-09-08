@@ -9,42 +9,34 @@
 import UIKit
 import RealmSwift
 import FBSDKLoginKit
-
+import AlamofireImage
 
 class LoggedViewController: UIViewController {
     let realm = try! Realm()
-    
+    let loginManager = FBSDKLoginManager()
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    
-    
-    
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
            let person = realm.objects(Person.self)
             name.text = person[0].name
             email.text = person[0].email
-            let url = NSURL(string: "https://graph.facebook.com/\(person[0].FbID)/picture?type=large&return_ssl_resources=1")
-        self.imageView.image = UIImage(data: NSData(contentsOfURL: url!)!)
-        
-        
-        
+            self.imageView.af_setImageWithURL(person[0].imageURL)
     }
 
     @IBAction func LogOut(sender: AnyObject) {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.switchBack()
+        self.loginManager.logOut()
         
         try! realm.write {
             realm.deleteAll()
         }
         
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.switchBack()
         
-                
     }
 }

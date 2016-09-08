@@ -85,11 +85,14 @@ class LoginViewController: UIViewController {
                      realm.add(user, update: true)
                 }
                 
+                
                 self.loginManager.logOut() // this is an instance function
                 print(realm.configuration.fileURL)
                 
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.switchviewController()
+                
+                
             })
         }
     }

@@ -13,6 +13,10 @@ class Person: Object {
     dynamic var name = ""
     dynamic var email = ""
     dynamic var FbID = ""
+    dynamic var test = ""
+    dynamic var imageURL: NSURL! {
+        return NSURL(string: "https://graph.facebook.com/\(FbID)/picture?type=large&return_ssl_resources=1")
+    }
     
     
 
