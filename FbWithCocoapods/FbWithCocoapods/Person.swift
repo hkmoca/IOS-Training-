@@ -13,8 +13,8 @@ class Person: Object {
     dynamic var name = ""
     dynamic var email = ""
     dynamic var FbID = ""
-    dynamic var test = ""
-    dynamic var imageURL: NSURL! {
+
+            var profileImageURL: NSURL! {
         return NSURL(string: "https://graph.facebook.com/\(FbID)/picture?type=large&return_ssl_resources=1")
     }
     
@@ -22,5 +22,9 @@ class Person: Object {
 
     override static func primaryKey() -> String? {
         return "email"
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["profileImageURL"]
     }
 }

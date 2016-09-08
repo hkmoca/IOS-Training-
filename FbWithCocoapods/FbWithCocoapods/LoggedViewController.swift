@@ -24,7 +24,7 @@ class LoggedViewController: UIViewController {
            let person = realm.objects(Person.self)
             name.text = person[0].name
             email.text = person[0].email
-            self.imageView.af_setImageWithURL(person[0].imageURL)
+            self.imageView.af_setImageWithURL(person[0].profileImageURL)
     }
 
     @IBAction func LogOut(sender: AnyObject) {
