@@ -53,5 +53,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func switchToLogged() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let nav = storyboard.instantiateViewControllerWithIdentifier("Main")
+        self.window?.rootViewController = nav
+    }
+    
+    func switchToLogin(){
+        let storyboard = UIStoryboard.init(name: "Login", bundle: nil)
+        let nav = storyboard.instantiateViewControllerWithIdentifier("Login")
+        self.window?.rootViewController = nav
+    }
 }
 
