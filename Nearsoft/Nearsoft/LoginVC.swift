@@ -9,9 +9,12 @@
 import UIKit
 import Google
 import GoogleSignIn
+import RealmSwift
 
 class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
-    var person = Person()
+    
+    let realm = try! Realm()
+    
     @IBOutlet weak var signInButton: GIDSignInButton!
     
     override func viewDidLoad() {
@@ -22,10 +25,10 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         var error: NSError?
         GGLContext.sharedInstance().configureWithError(&error)
         
-        if error != nil {
-            print (error)
-            return
-        }
+//        if error != nil {
+//            print (error)
+//            return
+//        }
         
        
     }
@@ -34,6 +37,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
         if (error == nil) {
             // Perform any operations on signed in user here.
+            let person = Person()
             person.userId = user.userID                  // For client-side use only!
             person.idToken = user.authentication.idToken // Safe to send to the server
             person.fullName = user.profile.name
@@ -41,7 +45,12 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             person.familyName = user.profile.familyName
             person.email = user.profile.email
             print (user.profile.imageURLWithDimension(200))
-        
+            
+            try! realm.write {
+                realm.add(person, update: true)
+            }
+            
+            print(realm.configuration.fileURL)
             
         } else {
             print("\(error.localizedDescription)")
