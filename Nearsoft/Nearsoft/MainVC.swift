@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Google
+import GoogleSignIn
 
 class MainVC: UIViewController {
 
@@ -19,7 +21,12 @@ class MainVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    @IBAction func didTapSignOut(sender: AnyObject) {
+        GIDSignIn.sharedInstance().signOut()
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.switchToLogin()
+    }
 
 }
 
