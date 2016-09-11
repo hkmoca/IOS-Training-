@@ -34,12 +34,12 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
         if (error == nil) {
             // Perform any operations on signed in user here.
-            var userId = user.userID                  // For client-side use only!
+            person.userId = user.userID                  // For client-side use only!
             person.idToken = user.authentication.idToken // Safe to send to the server
-            var fullName = user.profile.name
-            var givenName = user.profile.givenName
-            var familyName = user.profile.familyName
-            var email = user.profile.email
+            person.fullName = user.profile.name
+            person.givenName = user.profile.givenName
+            person.familyName = user.profile.familyName
+            person.email = user.profile.email
             print (user.profile.imageURLWithDimension(200))
         
             
