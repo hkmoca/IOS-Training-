@@ -17,6 +17,7 @@ class Person: Object {
    dynamic var givenName: String = ""
    dynamic var familyName: String = ""
    dynamic var email: String = ""
+    dynamic var profilePic: String = ""
     
     override static func primaryKey() -> String? {
         return "email"
