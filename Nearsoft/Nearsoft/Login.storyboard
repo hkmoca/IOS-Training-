@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Sgw-Aj-GlR">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="lgj-d8-ckb">
             <objects>
-                <viewController id="Sgw-Aj-GlR" sceneMemberID="viewController">
+                <viewController id="Sgw-Aj-GlR" customClass="LoginVC" customModule="Nearsoft" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kyv-PD-cqL"/>
                         <viewControllerLayoutGuide type="bottom" id="DPQ-8y-JQP"/>
@@ -16,7 +16,33 @@
                     <view key="view" contentMode="scaleToFill" id="byQ-Hb-4Z9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4n-jP-yCs">
+                                <rect key="frame" x="275" y="434" width="51" height="30"/>
+                                <state key="normal" title="LogOut"/>
+                                <connections>
+                                    <action selector="didTapSignOut:" destination="Sgw-Aj-GlR" eventType="touchUpInside" id="Pnp-dH-vng"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUC-Dy-WOh">
+                                <rect key="frame" x="192" y="263" width="216" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="SdV-8U-YvV"/>
+                                    <constraint firstAttribute="width" constant="216" id="Zx5-di-NbW"/>
+                                </constraints>
+                                <state key="normal" image="googleSign">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="googleSignIn:" destination="Sgw-Aj-GlR" eventType="touchUpInside" id="Djy-Mw-CZd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fUC-Dy-WOh" firstAttribute="centerY" secondItem="byQ-Hb-4Z9" secondAttribute="centerY" id="0Jp-we-KeL"/>
+                            <constraint firstItem="fUC-Dy-WOh" firstAttribute="centerX" secondItem="byQ-Hb-4Z9" secondAttribute="centerX" id="2oD-8n-xkE"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEb-RS-2eB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +50,7 @@
             <point key="canvasLocation" x="478" y="424"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="googleSign" width="191" height="46"/>
+    </resources>
 </document>

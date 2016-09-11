@@ -7,19 +7,54 @@
 //
 
 import UIKit
+import Google
+import GoogleSignIn
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
+    var person = Person()
+    @IBOutlet weak var signInButton: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+         GIDSignIn.sharedInstance().uiDelegate = self
+         GIDSignIn.sharedInstance().delegate = self
+        
+        var error: NSError?
+        GGLContext.sharedInstance().configureWithError(&error)
+        
+        if error != nil {
+            print (error)
+            return
+        }
+        
+       
+    }
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+                withError error: NSError!) {
+        
+        if (error == nil) {
+            // Perform any operations on signed in user here.
+            var userId = user.userID                  // For client-side use only!
+            person.idToken = user.authentication.idToken // Safe to send to the server
+            var fullName = user.profile.name
+            var givenName = user.profile.givenName
+            var familyName = user.profile.familyName
+            var email = user.profile.email
+            print (user.profile.imageURLWithDimension(200))
+        
+            
+        } else {
+            print("\(error.localizedDescription)")
+        }
+    }
+  
+    
+    @IBAction func googleSignIn(sender: AnyObject) {
+        GIDSignIn.sharedInstance().signIn()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func didTapSignOut(sender: AnyObject) {
+        GIDSignIn.sharedInstance().signOut()
     }
-    
-    
 }
 
