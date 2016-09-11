@@ -25,10 +25,10 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         var error: NSError?
         GGLContext.sharedInstance().configureWithError(&error)
         
-//        if error != nil {
-//            print (error)
-//            return
-//        }
+        if error != nil {
+            print (error)
+            return
+        }
         
        
     }
