@@ -8,7 +8,7 @@
         <!--LoginVC-->
         <scene sceneID="lgj-d8-ckb">
             <objects>
-                <viewController id="Sgw-Aj-GlR" customClass="LoginVC" customModule="Nearsoft" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="Sgw-Aj-GlR" customClass="LoginVC" customModule="Nearsoft" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kyv-PD-cqL"/>
                         <viewControllerLayoutGuide type="bottom" id="DPQ-8y-JQP"/>
@@ -17,13 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4n-jP-yCs">
-                                <rect key="frame" x="275" y="434" width="51" height="30"/>
-                                <state key="normal" title="LogOut"/>
-                                <connections>
-                                    <action selector="didTapSignOut:" destination="Sgw-Aj-GlR" eventType="touchUpInside" id="Pnp-dH-vng"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUC-Dy-WOh">
                                 <rect key="frame" x="192" y="263" width="216" height="73"/>
                                 <constraints>
