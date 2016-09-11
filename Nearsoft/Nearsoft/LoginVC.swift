@@ -32,6 +32,8 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
        
     }
+    
+    
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
         
@@ -44,13 +46,15 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             person.givenName = user.profile.givenName
             person.familyName = user.profile.familyName
             person.email = user.profile.email
-            print (user.profile.imageURLWithDimension(200))
+            person.profilePic = String(user.profile.imageURLWithDimension(200))
             
             try! realm.write {
                 realm.add(person, update: true)
             }
             
             print(realm.configuration.fileURL)
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.switchToLogged()
             
         } else {
             print("\(error.localizedDescription)")
@@ -60,6 +64,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     @IBAction func googleSignIn(sender: AnyObject) {
         GIDSignIn.sharedInstance().signIn()
+        
     }
     
     @IBAction func didTapSignOut(sender: AnyObject) {
