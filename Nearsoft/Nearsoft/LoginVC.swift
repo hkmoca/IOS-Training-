@@ -23,13 +23,13 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
          GIDSignIn.sharedInstance().delegate = self
         
         
-//        var error: NSError?
-//        GGLContext.sharedInstance().configureWithError(&error)
-//        
-//        if error != nil {
-//            print (error)
-//            return
-//        }
+        var error: NSError?
+        GGLContext.sharedInstance().configureWithError(&error)
+        
+        if error != nil {
+            print (error)
+            return
+        }
         
        
     }
