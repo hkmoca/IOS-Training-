@@ -41,7 +41,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
         if (error == nil) {
             // Perform any operations on signed in user here.
-            let person = Person()
+            let person = GoogleUser()
             person.userId = user.userID                  // For client-side use only!
             person.idToken = user.authentication.idToken // Safe to send to the server
             person.fullName = user.profile.name
@@ -49,17 +49,28 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             person.familyName = user.profile.familyName
             person.email = user.profile.email
             person.profilePic = String(user.profile.imageURLWithDimension(200))
+
+            if (user.hostedDomain != nil) {
             person.hostDomain = user.hostedDomain
-            
-            
-            try! realm.write {
-                realm.add(person, update: true)
             }
             
-            print(realm.configuration.fileURL)
+            if person.hostDomain == "nearsoft.com" {
+                try! realm.write {
+                    realm.add(person, update: true)
+                }
+                
+                print(realm.configuration.fileURL)
+                
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.switchToLogged()
+                
+            } else {
+                print ("Nop te la pelaste")
+                GIDSignIn.sharedInstance().signOut()
+                
+            }
             
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.switchToLogged()
+            
             
         } else {
             print("\(error.localizedDescription)")
