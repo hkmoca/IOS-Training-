@@ -53,6 +53,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             }
             
             print(realm.configuration.fileURL)
+            
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.switchToLogged()
             
@@ -67,8 +68,5 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
     }
     
-    @IBAction func didTapSignOut(sender: AnyObject) {
-        GIDSignIn.sharedInstance().signOut()
-    }
 }
 
