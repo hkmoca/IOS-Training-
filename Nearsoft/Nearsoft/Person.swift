@@ -17,6 +17,7 @@ class Person: Object {
    dynamic var givenName: String = ""
    dynamic var familyName: String = ""
    dynamic var email: String = ""
+   dynamic var hostDomain: String = ""
    dynamic var profilePic: String = ""
            var profilePicURL: NSURL! {
             return NSURL(string: "\(profilePic)")
