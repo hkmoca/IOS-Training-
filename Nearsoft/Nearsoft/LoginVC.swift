@@ -49,6 +49,8 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             person.familyName = user.profile.familyName
             person.email = user.profile.email
             person.profilePic = String(user.profile.imageURLWithDimension(200))
+            person.hostDomain = user.hostedDomain
+            
             
             try! realm.write {
                 realm.add(person, update: true)
