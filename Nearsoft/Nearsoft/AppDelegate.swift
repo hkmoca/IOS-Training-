@@ -9,9 +9,11 @@
 import UIKit
 import GoogleSignIn
 import Google
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate  {
+    let realm = try! Realm()
 
     var window: UIWindow?
     
@@ -28,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
     
+        let persons = realm.objects(Person.self)
+        if persons.count == 0 {
+        switchToLogin()
+        } else {
+        switchToLogged()
+        }
         return true
     }
 
