@@ -32,10 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
     
         let persons = realm.objects(Person.self)
         if persons.count == 0 {
-        switchToLogin()
+            switchToLogin()
         } else {
-        switchToLogged()
+            switchToLogged()
         }
+        
         return true
     }
 
