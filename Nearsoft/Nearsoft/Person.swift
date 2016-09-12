@@ -17,10 +17,17 @@ class Person: Object {
    dynamic var givenName: String = ""
    dynamic var familyName: String = ""
    dynamic var email: String = ""
-    dynamic var profilePic: String = ""
+   dynamic var profilePic: String = ""
+           var profilePicURL: NSURL! {
+            return NSURL(string: "\(profilePic)")
+            }
+
     
     override static func primaryKey() -> String? {
         return "email"
     }
-
+    
+    override static func ignoredProperties() -> [String] {
+            return ["profilePicURL"]
+    }
 }
