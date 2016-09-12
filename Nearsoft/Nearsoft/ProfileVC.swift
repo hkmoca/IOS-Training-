@@ -24,8 +24,8 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let persons = realm.objects(Person.self)
-        let person = persons[0] as Person
+        let persons = realm.objects(GoogleUser.self)
+        let person = persons[0] as GoogleUser
             nameLabel.text = person.fullName
             emailLabel.text = person.email
         self.profileImage.af_setImageWithURL(person.profilePicURL)
