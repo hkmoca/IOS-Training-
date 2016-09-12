@@ -8,8 +8,10 @@
 
 import Foundation
 import RealmSwift
+import Realm
 
-class Person: Object {
+
+class GoogleUser: Object {
 
    dynamic var userId: String = ""
    dynamic var idToken: String = ""
@@ -21,8 +23,7 @@ class Person: Object {
    dynamic var profilePic: String = ""
            var profilePicURL: NSURL! {
             return NSURL(string: "\(profilePic)")
-            }
-
+            } 
     
     override static func primaryKey() -> String? {
         return "email"
