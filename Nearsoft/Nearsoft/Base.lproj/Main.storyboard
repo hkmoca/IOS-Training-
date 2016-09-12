@@ -28,33 +28,45 @@
                                     <action selector="didTapSignOut:" destination="Yp0-GA-17B" eventType="touchUpInside" id="NKh-4m-lzM"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ud6-cR-yqy">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-j2-HFc">
+                                <rect key="frame" x="270" y="266" width="61" height="67"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fya-an-2YY">
+                                        <rect key="frame" x="0.0" y="0.0" width="61" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OJ-rz-xut">
+                                        <rect key="frame" x="0.0" y="46" width="61" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ud6-cR-yqy">
                                 <rect key="frame" x="197" y="28" width="206" height="173"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="206" id="5Pf-uP-w9m"/>
                                     <constraint firstAttribute="height" constant="173" id="aKt-Gy-MRd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fya-an-2YY">
-                                <rect key="frame" x="279" y="289" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ud6-cR-yqy" firstAttribute="centerX" secondItem="RPG-Xc-qjz" secondAttribute="centerX" id="46z-PM-EmG"/>
                             <constraint firstItem="nFu-dr-Evv" firstAttribute="centerX" secondItem="RPG-Xc-qjz" secondAttribute="centerX" id="XVG-lF-Cyz"/>
-                            <constraint firstItem="fya-an-2YY" firstAttribute="centerY" secondItem="RPG-Xc-qjz" secondAttribute="centerY" id="Xgr-d3-XvB"/>
+                            <constraint firstItem="7tw-j2-HFc" firstAttribute="centerX" secondItem="RPG-Xc-qjz" secondAttribute="centerX" id="YkR-7U-iY0"/>
                             <constraint firstItem="Axh-Bd-Hbq" firstAttribute="top" secondItem="nFu-dr-Evv" secondAttribute="bottom" constant="8" id="fxY-cE-Cd2"/>
-                            <constraint firstItem="fya-an-2YY" firstAttribute="centerX" secondItem="RPG-Xc-qjz" secondAttribute="centerX" id="iJE-Pu-JjO"/>
                             <constraint firstItem="ud6-cR-yqy" firstAttribute="top" secondItem="t2P-sq-j4K" secondAttribute="bottom" constant="8" id="tkP-2C-xRu"/>
+                            <constraint firstItem="7tw-j2-HFc" firstAttribute="centerY" secondItem="RPG-Xc-qjz" secondAttribute="centerY" id="xA0-Pd-1Ca"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="bVB-LI-iDz"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="google.png" selectedImage="google.png" id="bVB-LI-iDz"/>
                     <connections>
-                        <outlet property="name" destination="fya-an-2YY" id="ZvH-eO-QO2"/>
+                        <outlet property="emailLabel" destination="4OJ-rz-xut" id="iAh-rT-kgO"/>
+                        <outlet property="nameLabel" destination="fya-an-2YY" id="Kqn-RU-2IV"/>
                         <outlet property="profileImage" destination="ud6-cR-yqy" id="WaY-sf-HUs"/>
                     </connections>
                 </viewController>
