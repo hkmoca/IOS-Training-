@@ -17,10 +17,12 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     @IBOutlet weak var signInButton: GIDSignInButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          GIDSignIn.sharedInstance().uiDelegate = self
          GIDSignIn.sharedInstance().delegate = self
+        
         
         var error: NSError?
         GGLContext.sharedInstance().configureWithError(&error)
@@ -61,12 +63,6 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             print("\(error.localizedDescription)")
         }
     }
-  
-    
-    @IBAction func googleSignIn(sender: AnyObject) {
-        GIDSignIn.sharedInstance().signIn()
-        
-    }
-    
+
 }
 
