@@ -18,20 +18,20 @@ class ProfileVC: UIViewController {
     let realm = try! Realm()
     
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let persons = realm.objects(Person.self)
         let person = persons[0] as Person
-        name.text = person.fullName
-       self.profileImage.af_setImageWithURL(person.profilePicURL)
+            nameLabel.text = person.fullName
+            emailLabel.text = person.email
+        self.profileImage.af_setImageWithURL(person.profilePicURL)
         
     }
 
-    
-    
-    
        @IBAction func didTapSignOut(sender: AnyObject) {
         GIDSignIn.sharedInstance().signOut()
         
