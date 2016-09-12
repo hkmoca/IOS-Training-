@@ -17,33 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUC-Dy-WOh">
-                                <rect key="frame" x="192" y="263" width="216" height="73"/>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="SGO-3g-FQN" customClass="GIDSignInButton">
+                                <rect key="frame" x="245" y="267" width="111" height="66"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="73" id="SdV-8U-YvV"/>
-                                    <constraint firstAttribute="width" constant="216" id="Zx5-di-NbW"/>
+                                    <constraint firstAttribute="height" constant="66" id="Kmf-LH-2JU"/>
+                                    <constraint firstAttribute="width" constant="111" id="jSc-4H-bQf"/>
                                 </constraints>
-                                <state key="normal" image="googleSign">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="googleSignIn:" destination="Sgw-Aj-GlR" eventType="touchUpInside" id="Djy-Mw-CZd"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fUC-Dy-WOh" firstAttribute="centerY" secondItem="byQ-Hb-4Z9" secondAttribute="centerY" id="0Jp-we-KeL"/>
-                            <constraint firstItem="fUC-Dy-WOh" firstAttribute="centerX" secondItem="byQ-Hb-4Z9" secondAttribute="centerX" id="2oD-8n-xkE"/>
+                            <constraint firstItem="SGO-3g-FQN" firstAttribute="centerX" secondItem="byQ-Hb-4Z9" secondAttribute="centerX" id="MXu-Sw-jhQ"/>
+                            <constraint firstItem="SGO-3g-FQN" firstAttribute="centerY" secondItem="byQ-Hb-4Z9" secondAttribute="centerY" id="kyP-mX-1uv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="signInButton" destination="SGO-3g-FQN" id="694-wS-UdK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEb-RS-2eB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="478" y="424"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="googleSign" width="191" height="46"/>
-    </resources>
 </document>
