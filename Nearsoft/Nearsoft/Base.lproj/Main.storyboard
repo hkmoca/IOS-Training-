@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Profile-->
         <scene sceneID="FF4-Hv-q0i">
             <objects>
-                <viewController id="Yp0-GA-17B" sceneMemberID="viewController">
+                <viewController id="Yp0-GA-17B" customClass="ProfileVC" customModule="Nearsoft" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t2P-sq-j4K"/>
                         <viewControllerLayoutGuide type="bottom" id="Axh-Bd-Hbq"/>
@@ -16,18 +16,56 @@
                     <view key="view" contentMode="scaleToFill" id="RPG-Xc-qjz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFu-dr-Evv">
+                                <rect key="frame" x="240" y="495" width="120" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="AAd-B8-aKd"/>
+                                    <constraint firstAttribute="width" constant="120" id="N8c-Hk-4wW"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="I3NM6"/>
+                                <connections>
+                                    <action selector="didTapSignOut:" destination="Yp0-GA-17B" eventType="touchUpInside" id="NKh-4m-lzM"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ud6-cR-yqy">
+                                <rect key="frame" x="197" y="28" width="206" height="173"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="206" id="5Pf-uP-w9m"/>
+                                    <constraint firstAttribute="height" constant="173" id="aKt-Gy-MRd"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fya-an-2YY">
+                                <rect key="frame" x="279" y="289" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ud6-cR-yqy" firstAttribute="centerX" secondItem="RPG-Xc-qjz" secondAttribute="centerX" id="46z-PM-EmG"/>
+                            <constraint firstItem="nFu-dr-Evv" firstAttribute="centerX" secondItem="RPG-Xc-qjz" secondAttribute="centerX" id="XVG-lF-Cyz"/>
+                            <constraint firstItem="fya-an-2YY" firstAttribute="centerY" secondItem="RPG-Xc-qjz" secondAttribute="centerY" id="Xgr-d3-XvB"/>
+                            <constraint firstItem="Axh-Bd-Hbq" firstAttribute="top" secondItem="nFu-dr-Evv" secondAttribute="bottom" constant="8" id="fxY-cE-Cd2"/>
+                            <constraint firstItem="fya-an-2YY" firstAttribute="centerX" secondItem="RPG-Xc-qjz" secondAttribute="centerX" id="iJE-Pu-JjO"/>
+                            <constraint firstItem="ud6-cR-yqy" firstAttribute="top" secondItem="t2P-sq-j4K" secondAttribute="bottom" constant="8" id="tkP-2C-xRu"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="bVB-LI-iDz"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="bVB-LI-iDz"/>
+                    <connections>
+                        <outlet property="name" destination="fya-an-2YY" id="ZvH-eO-QO2"/>
+                        <outlet property="profileImage" destination="ud6-cR-yqy" id="WaY-sf-HUs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xN-Ek-zu3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1155" y="748"/>
         </scene>
-        <!--Item 1-->
+        <!--ContactsVC-->
         <scene sceneID="GlT-D3-RZ6">
             <objects>
-                <viewController id="V7K-qx-p2G" customClass="MainVC" customModule="Nearsoft" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="V7K-qx-p2G" customClass="ContactsVC" customModule="Nearsoft" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HfS-BU-Uvm"/>
                         <viewControllerLayoutGuide type="bottom" id="J7d-7e-vJS"/>
@@ -37,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="eqQ-8l-8Hr"/>
+                    <tabBarItem key="tabBarItem" selectedImage="google.png" systemItem="contacts" id="eqQ-8l-8Hr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydJ-gt-yX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,4 +100,8 @@
             <point key="canvasLocation" x="377" y="203"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="I3NM6" width="315" height="147"/>
+        <image name="google.png" width="18" height="18"/>
+    </resources>
 </document>
