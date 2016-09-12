@@ -17,20 +17,19 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     @IBOutlet weak var signInButton: GIDSignInButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
          GIDSignIn.sharedInstance().uiDelegate = self
          GIDSignIn.sharedInstance().delegate = self
         
         
-        var error: NSError?
-        GGLContext.sharedInstance().configureWithError(&error)
-        
-        if error != nil {
-            print (error)
-            return
-        }
+//        var error: NSError?
+//        GGLContext.sharedInstance().configureWithError(&error)
+//        
+//        if error != nil {
+//            print (error)
+//            return
+//        }
         
        
     }
@@ -67,14 +66,20 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             } else {
                 print ("Nop te la pelaste")
                 GIDSignIn.sharedInstance().signOut()
+                alert()
                 
             }
-            
-            
             
         } else {
             print("\(error.localizedDescription)")
         }
+    }
+    
+    func alert(){
+        
+        let alert = UIAlertController(title: "Stop", message: "Please, LogIn with a valid Nearsoft account", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 
 }
