@@ -63,7 +63,7 @@
                             <constraint firstItem="7tw-j2-HFc" firstAttribute="centerY" secondItem="RPG-Xc-qjz" secondAttribute="centerY" id="xA0-Pd-1Ca"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="google.png" selectedImage="google.png" id="bVB-LI-iDz"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileIcon" selectedImage="ProfileIcon" id="bVB-LI-iDz"/>
                     <connections>
                         <outlet property="emailLabel" destination="4OJ-rz-xut" id="iAh-rT-kgO"/>
                         <outlet property="nameLabel" destination="fya-an-2YY" id="Kqn-RU-2IV"/>
@@ -85,13 +85,69 @@
                     <view key="view" contentMode="scaleToFill" id="ZcA-Eg-3Sh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D5k-6A-uhV">
+                                <rect key="frame" x="0.0" y="8" width="600" height="592"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomCell" rowHeight="72" id="bc9-HW-VE2" customClass="CustomCell" customModule="Nearsoft" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bc9-HW-VE2" id="BAi-3b-1vP">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pff-gq-zUP">
+                                                    <rect key="frame" x="18" y="0.0" width="42" height="59"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Azz-8q-3oo">
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29Q-hb-qgR">
+                                                            <rect key="frame" x="0.0" y="38" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Pff-gq-zUP" firstAttribute="leading" secondItem="BAi-3b-1vP" secondAttribute="leading" constant="18" id="7po-Kg-QKg"/>
+                                                <constraint firstItem="Pff-gq-zUP" firstAttribute="top" secondItem="BAi-3b-1vP" secondAttribute="top" id="qFg-JL-TNJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="email" destination="29Q-hb-qgR" id="PcZ-pI-lNP"/>
+                                            <outlet property="userName" destination="Azz-8q-3oo" id="deZ-Tg-0Qk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="V7K-qx-p2G" id="KQb-gG-Yam"/>
+                                    <outlet property="delegate" destination="V7K-qx-p2G" id="W0J-TK-ifA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="D5k-6A-uhV" secondAttribute="trailing" id="9ag-TU-4bs"/>
+                            <constraint firstItem="D5k-6A-uhV" firstAttribute="leading" secondItem="ZcA-Eg-3Sh" secondAttribute="leading" id="BJ4-Vi-JVa"/>
+                            <constraint firstAttribute="bottom" secondItem="D5k-6A-uhV" secondAttribute="bottom" id="Sl8-R2-IVB"/>
+                            <constraint firstItem="D5k-6A-uhV" firstAttribute="top" secondItem="ZcA-Eg-3Sh" secondAttribute="top" constant="8" id="fIG-ka-23r"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="google.png" systemItem="contacts" id="eqQ-8l-8Hr"/>
+                    <navigationItem key="navigationItem" id="hcg-XF-Acq"/>
+                    <connections>
+                        <outlet property="tableView" destination="D5k-6A-uhV" id="1fb-s1-1Bv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydJ-gt-yX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1155" y="87"/>
+            <point key="canvasLocation" x="1967" y="87"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5Uz-Dr-rEf">
@@ -103,7 +159,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="V7K-qx-p2G" kind="relationship" relationship="viewControllers" id="S0b-kr-eZz"/>
+                        <segue destination="WVV-rz-mra" kind="relationship" relationship="viewControllers" id="S0b-kr-eZz"/>
                         <segue destination="Yp0-GA-17B" kind="relationship" relationship="viewControllers" id="3om-6n-EXZ"/>
                     </connections>
                 </tabBarController>
@@ -111,9 +167,29 @@
             </objects>
             <point key="canvasLocation" x="377" y="203"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jwF-EE-CuF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WVV-rz-mra" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" selectedImage="google.png" systemItem="contacts" id="eqQ-8l-8Hr"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DMP-cN-n2D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="V7K-qx-p2G" kind="relationship" relationship="rootViewController" id="EWC-Vy-Pfs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sg7-Ce-K3o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="87"/>
+        </scene>
     </scenes>
     <resources>
         <image name="I3NM6" width="315" height="147"/>
+        <image name="ProfileIcon" width="36" height="30"/>
         <image name="google.png" width="18" height="18"/>
     </resources>
 </document>
