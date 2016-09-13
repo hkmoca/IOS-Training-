@@ -11,14 +11,46 @@ import Google
 import GoogleSignIn
 
 class ContactsVC: UIViewController {
-    
+    @IBOutlet weak var tableView: UITableView!
+    var people = [User]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        displayPeople()
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func displayPeople(){
+        let nsModel = NSModel()
+            nsModel.showNSPeople({ (people) in
+                self.people = people
+                self.tableView.reloadData()
+                }, onFailure: { (error) in
+                    print ("Something went wrong!!!!!!!!!!!!!!!!!!!!!**********")
+                }
+            )
     }
+}
+
+extension ContactsVC: UITableViewDataSource{
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return people.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let person = people[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as? CustomCell
+        cell?.userName.text = person.fullName
+        cell?.email.text = person.email
+        
+        return cell!
+    }
+    
+
+
+}
