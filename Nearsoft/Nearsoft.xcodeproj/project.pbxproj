@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0F574517E694E3F5F066C235 /* Pods_Nearsoft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2696C13A56890EC1A8A200BD /* Pods_Nearsoft.framework */; };
+		15EFAA5A1D87729D00540E08 /* NSConetion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA591D87729D00540E08 /* NSConetion.swift */; };
+		15EFAA5E1D87754300540E08 /* NSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA5D1D87754300540E08 /* NSModel.swift */; };
+		15EFAA601D887E9800540E08 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA5F1D887E9800540E08 /* CustomCell.swift */; };
+		15EFAA631D88933600540E08 /* Captura de pantalla 2016-09-13 a las 1.03.39 p.m..png in Resources */ = {isa = PBXBuildFile; fileRef = 15EFAA621D88933600540E08 /* Captura de pantalla 2016-09-13 a las 1.03.39 p.m..png */; };
 		15F87F651D822432006EB49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87F641D822432006EB49E /* AppDelegate.swift */; };
 		15F87F671D822432006EB49E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87F661D822432006EB49E /* ProfileVC.swift */; };
 		15F87F6A1D822432006EB49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F87F681D822432006EB49E /* Main.storyboard */; };
@@ -18,7 +22,7 @@
 		15F87F931D8228AE006EB49E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F87F921D8228AE006EB49E /* Login.storyboard */; };
 		15F87F951D822A04006EB49E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87F941D822A04006EB49E /* LoginVC.swift */; };
 		15F87F971D83253F006EB49E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15F87F961D83253F006EB49E /* GoogleService-Info.plist */; };
-		15F87F9F1D85EC89006EB49E /* GoogleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87F9E1D85EC89006EB49E /* GoogleUser.swift */; };
+		15F87F9F1D85EC89006EB49E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87F9E1D85EC89006EB49E /* User.swift */; };
 		15F87FA31D8634C0006EB49E /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87FA21D8634C0006EB49E /* ContactsVC.swift */; };
 		15F87FA81D8674FA006EB49E /* NSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87FA71D8674FA006EB49E /* NSRouter.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15EFAA591D87729D00540E08 /* NSConetion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSConetion.swift; sourceTree = "<group>"; };
+		15EFAA5D1D87754300540E08 /* NSModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSModel.swift; sourceTree = "<group>"; };
+		15EFAA5F1D887E9800540E08 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		15EFAA621D88933600540E08 /* Captura de pantalla 2016-09-13 a las 1.03.39 p.m..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Captura de pantalla 2016-09-13 a las 1.03.39 p.m..png"; sourceTree = "<group>"; };
 		15F87F611D822432006EB49E /* Nearsoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nearsoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F87F641D822432006EB49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15F87F661D822432006EB49E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -57,7 +65,7 @@
 		15F87F921D8228AE006EB49E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		15F87F941D822A04006EB49E /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		15F87F961D83253F006EB49E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		15F87F9E1D85EC89006EB49E /* GoogleUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleUser.swift; sourceTree = "<group>"; };
+		15F87F9E1D85EC89006EB49E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		15F87FA21D8634C0006EB49E /* ContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		15F87FA71D8674FA006EB49E /* NSRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRouter.swift; sourceTree = "<group>"; };
 		2696C13A56890EC1A8A200BD /* Pods_Nearsoft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nearsoft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,9 +99,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15EFAA611D888C1200540E08 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				15EFAA5F1D887E9800540E08 /* CustomCell.swift */,
+			);
+			name = CustomCell;
+			path = Nearsoft;
+			sourceTree = "<group>";
+		};
 		15F87F581D822432006EB49E = {
 			isa = PBXGroup;
 			children = (
+				15EFAA611D888C1200540E08 /* CustomCell */,
 				15F87F631D822432006EB49E /* Nearsoft */,
 				15F87F781D822432006EB49E /* NearsoftTests */,
 				15F87F831D822432006EB49E /* NearsoftUITests */,
@@ -117,10 +135,11 @@
 			isa = PBXGroup;
 			children = (
 				15F87F641D822432006EB49E /* AppDelegate.swift */,
+				15EFAA621D88933600540E08 /* Captura de pantalla 2016-09-13 a las 1.03.39 p.m..png */,
 				15F87F6B1D822432006EB49E /* Assets.xcassets */,
 				15F87F961D83253F006EB49E /* GoogleService-Info.plist */,
 				15F87F701D822432006EB49E /* Info.plist */,
-				15F87FAE1D868DA2006EB49E /* Models */,
+				15F87FAE1D868DA2006EB49E /* Molds */,
 				15F87FA61D8651EA006EB49E /* ViewControllers */,
 				15F87FA51D864C84006EB49E /* StoryBoards */,
 				15F87FAC1D867834006EB49E /* Routers */,
@@ -169,17 +188,19 @@
 		15F87FAC1D867834006EB49E /* Routers */ = {
 			isa = PBXGroup;
 			children = (
+				15EFAA5D1D87754300540E08 /* NSModel.swift */,
+				15EFAA591D87729D00540E08 /* NSConetion.swift */,
 				15F87FA71D8674FA006EB49E /* NSRouter.swift */,
 			);
 			name = Routers;
 			sourceTree = "<group>";
 		};
-		15F87FAE1D868DA2006EB49E /* Models */ = {
+		15F87FAE1D868DA2006EB49E /* Molds */ = {
 			isa = PBXGroup;
 			children = (
-				15F87F9E1D85EC89006EB49E /* GoogleUser.swift */,
+				15F87F9E1D85EC89006EB49E /* User.swift */,
 			);
-			name = Models;
+			name = Molds;
 			sourceTree = "<group>";
 		};
 		2C8FFEA9B14A95AC4A8CCAA6 /* Pods */ = {
@@ -310,6 +331,7 @@
 				15F87F6F1D822432006EB49E /* LaunchScreen.storyboard in Resources */,
 				15F87F971D83253F006EB49E /* GoogleService-Info.plist in Resources */,
 				15F87F6C1D822432006EB49E /* Assets.xcassets in Resources */,
+				15EFAA631D88933600540E08 /* Captura de pantalla 2016-09-13 a las 1.03.39 p.m..png in Resources */,
 				15F87F6A1D822432006EB49E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,8 +407,11 @@
 			files = (
 				15F87F671D822432006EB49E /* ProfileVC.swift in Sources */,
 				15F87F651D822432006EB49E /* AppDelegate.swift in Sources */,
-				15F87F9F1D85EC89006EB49E /* GoogleUser.swift in Sources */,
+				15EFAA5E1D87754300540E08 /* NSModel.swift in Sources */,
+				15F87F9F1D85EC89006EB49E /* User.swift in Sources */,
+				15EFAA601D887E9800540E08 /* CustomCell.swift in Sources */,
 				15F87FA81D8674FA006EB49E /* NSRouter.swift in Sources */,
+				15EFAA5A1D87729D00540E08 /* NSConetion.swift in Sources */,
 				15F87F951D822A04006EB49E /* LoginVC.swift in Sources */,
 				15F87FA31D8634C0006EB49E /* ContactsVC.swift in Sources */,
 			);
