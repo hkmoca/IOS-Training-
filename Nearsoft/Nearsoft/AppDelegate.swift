@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
     
-        let persons = realm.objects(GoogleUser.self)
+        let persons = realm.objects(User.self)
         if persons.count == 0 {
             switchToLogin()
         } else {
