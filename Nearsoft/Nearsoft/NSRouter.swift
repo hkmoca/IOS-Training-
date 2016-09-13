@@ -9,9 +9,9 @@
 import Foundation
 import Alamofire
 
-enum Router: URLRequestConvertible {
-    
-    static let baseURLString = "http://peopledb-api.azurewebsites.net"
+enum NSRouter: URLRequestConvertible {
+   
+    static let baseURLString = "https://www.dropbox.com"
     
     case getUsers()
     
@@ -26,19 +26,22 @@ enum Router: URLRequestConvertible {
         
         switch self {
         case .getUsers:
-            return "/api/Employees"
+            return "/s/1je0rop2manf9w3/employees.json"
         }
     }
     
     var URLRequest: NSMutableURLRequest {
-    let URL = NSURL(string: Router.baseURLString)
+    let URL = NSURL(string: NSRouter.baseURLString)
     let mutableURLRequest = NSMutableURLRequest(URL: (URL?.URLByAppendingPathComponent(path))!)
         mutableURLRequest.HTTPMethod = method.rawValue
     let enconding = Alamofire.ParameterEncoding.URL
         
         switch self {
         case .getUsers:
-            return enconding.encode(mutableURLRequest, parameters: nil).0
+            let parameters = [
+            "dl": 0
+            ]
+            return enconding.encode(mutableURLRequest, parameters: parameters).0
         }
     }
 }
