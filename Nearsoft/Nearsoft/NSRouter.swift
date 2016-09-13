@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum NSRouter: URLRequestConvertible {
-   
+
     static let baseURLString = "https://www.dropbox.com"
     
     case getUsers()
@@ -39,7 +39,7 @@ enum NSRouter: URLRequestConvertible {
         switch self {
         case .getUsers:
             let parameters = [
-            "dl": 0
+            "raw": 1
             ]
             return enconding.encode(mutableURLRequest, parameters: parameters).0
         }
