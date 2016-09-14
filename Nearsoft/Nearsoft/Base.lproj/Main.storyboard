@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="1155" y="748"/>
         </scene>
-        <!--ContactsVC-->
+        <!--NS People-->
         <scene sceneID="GlT-D3-RZ6">
             <objects>
                 <viewController id="V7K-qx-p2G" customClass="ContactsVC" customModule="Nearsoft" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,6 +123,7 @@
                                         <connections>
                                             <outlet property="email" destination="29Q-hb-qgR" id="PcZ-pI-lNP"/>
                                             <outlet property="userName" destination="Azz-8q-3oo" id="deZ-Tg-0Qk"/>
+                                            <segue destination="jQf-V9-lvK" kind="show" identifier="Details" id="3Pf-kX-kdG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -140,7 +141,7 @@
                             <constraint firstItem="D5k-6A-uhV" firstAttribute="top" secondItem="ZcA-Eg-3Sh" secondAttribute="top" constant="8" id="fIG-ka-23r"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hcg-XF-Acq"/>
+                    <navigationItem key="navigationItem" title="NS People" id="hcg-XF-Acq"/>
                     <connections>
                         <outlet property="tableView" destination="D5k-6A-uhV" id="1fb-s1-1Bv"/>
                     </connections>
@@ -148,6 +149,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydJ-gt-yX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1967" y="87"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="81N-iR-Eu8">
+            <objects>
+                <viewController title="Detail" id="jQf-V9-lvK" customClass="UserDetailVC" customModule="Nearsoft" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bNR-Is-xXo"/>
+                        <viewControllerLayoutGuide type="bottom" id="8ap-Yr-u3L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CBx-3f-TQT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="HXd-QM-CH9">
+                                <rect key="frame" x="279" y="187" width="42" height="225"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ky-iz-FqS">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toj-2v-U47">
+                                        <rect key="frame" x="0.0" y="51" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-Sj-0Yj">
+                                        <rect key="frame" x="0.0" y="102" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnD-Ij-jyg">
+                                        <rect key="frame" x="0.0" y="153" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2R-5N-yNz">
+                                        <rect key="frame" x="0.0" y="204" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HXd-QM-CH9" firstAttribute="centerX" secondItem="CBx-3f-TQT" secondAttribute="centerX" id="TkN-Ub-XVN"/>
+                            <constraint firstItem="8ap-Yr-u3L" firstAttribute="top" secondItem="HXd-QM-CH9" secondAttribute="bottom" constant="139" id="v2Q-dQ-0fB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="akaLabel" destination="0ky-iz-FqS" id="ZzZ-0T-XuY"/>
+                        <outlet property="birthDate" destination="BFe-Sj-0Yj" id="yYY-jr-OU6"/>
+                        <outlet property="clientLabel" destination="z2R-5N-yNz" id="49r-cl-rec"/>
+                        <outlet property="emailLabel" destination="XnD-Ij-jyg" id="W0P-5g-AOj"/>
+                        <outlet property="fullName" destination="toj-2v-U47" id="1P1-mZ-WxA"/>
+                        <outlet property="mobileLabel" destination="XnD-Ij-jyg" id="q2D-eS-N5t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kqq-fi-PjE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2700" y="87"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5Uz-Dr-rEf">
