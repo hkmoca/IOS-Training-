@@ -11,9 +11,9 @@ import Alamofire
 
 class NSConection {
     
-    func getPeople(completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
+    func getEmployees(completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        Alamofire.request(NSRouter.getUsers())
+        Alamofire.request(NSRouter.getEmployees())
         .responseJSON { response in
            
             switch response.result {
@@ -23,6 +23,23 @@ class NSConection {
                 
             case.Failure(let ERROR):
                 onFailure(error: ERROR)
+            }
+        }
+    }
+    
+    func getInterns(completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
+    
+        Alamofire.request(NSRouter.getInterns())
+        .responseJSON { (response) in
+            
+            switch response.result {
+            
+            case.Success(let JSON):
+                    completion(json: JSON as! [[String: AnyObject]])
+                
+            case.Failure(let ERROR):
+                    onFailure(error: ERROR)
+            
             }
         }
     }
