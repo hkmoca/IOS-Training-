@@ -14,16 +14,13 @@ import RealmSwift
 class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     let realm = try! Realm()
-    
     @IBOutlet weak var signInButton: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         GIDSignIn.sharedInstance().uiDelegate = self
-         GIDSignIn.sharedInstance().delegate = self
-        
         
         var error: NSError?
+        
         GGLContext.sharedInstance().configureWithError(&error)
         
         if error != nil {
@@ -31,15 +28,17 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             return
         }
         
-       
+         GIDSignIn.sharedInstance().uiDelegate = self
+         GIDSignIn.sharedInstance().delegate = self
+        
     }
     
-    
+    //MARK: - Login
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
         
         if (error == nil) {
-            // Perform any operations on signed in user here.
+            
             let person = User()
             person.userId = user.userID                  // For client-side use only!
             person.idToken = user.authentication.idToken // Safe to send to the server
