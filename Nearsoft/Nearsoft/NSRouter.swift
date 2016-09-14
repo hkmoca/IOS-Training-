@@ -13,11 +13,12 @@ enum NSRouter: URLRequestConvertible {
 
     static let baseURLString = "https://www.dropbox.com"
     
-    case getUsers()
+    case getEmployees()
+    case getInterns()
     
     var method: Alamofire.Method {
         switch self {
-        case .getUsers:
+        case .getEmployees, .getInterns:
             return .GET
         }
     }
@@ -25,8 +26,10 @@ enum NSRouter: URLRequestConvertible {
     var path: String {
         
         switch self {
-        case .getUsers:
+        case .getEmployees:
             return "/s/1je0rop2manf9w3/employees.json"
+        case .getInterns:
+            return "/s/6edf3ely6vt8eps/interns.json"
         }
     }
     
@@ -37,11 +40,12 @@ enum NSRouter: URLRequestConvertible {
     let enconding = Alamofire.ParameterEncoding.URL
         
         switch self {
-        case .getUsers:
+        case .getEmployees, .getInterns:
             let parameters = [
             "raw": 1
             ]
             return enconding.encode(mutableURLRequest, parameters: parameters).0
+        
         }
     }
 }
