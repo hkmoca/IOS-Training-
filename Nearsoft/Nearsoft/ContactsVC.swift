@@ -30,6 +30,14 @@ class ContactsVC: UIViewController {
                 }
             )
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Details" {
+            let userDetailVC = segue.destinationViewController as! UserDetailVC
+            let path = tableView.indexPathForSelectedRow
+                userDetailVC.user = self.people[path!.row]
+        }
+    }
 }
 
 extension ContactsVC: UITableViewDataSource{
