@@ -35,12 +35,20 @@ public class DateTransform: TransformType {
 	public init() {}
 
 	public func transformFromJSON(value: AnyObject?) -> NSDate? {
-		if let timeInt = value as? Double {
+        if let timeInt = value as? Double {
+           
 			return NSDate(timeIntervalSince1970: NSTimeInterval(timeInt))
 		}
 		
 		if let timeStr = value as? String {
-			return NSDate(timeIntervalSince1970: NSTimeInterval(atof(timeStr)))
+            
+            let dateFormatter = NSDateFormatter()
+            
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            
+           // dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
+            
+			return  dateFormatter.dateFromString(timeStr)
 		}
 		
 		return nil
