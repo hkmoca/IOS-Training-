@@ -28,12 +28,13 @@ class User: Object, Mappable {
            var startDate:   String = ""
            var location:    Int = 0
            var role:        String = ""
-           var birthdate:   String = ""
+           var birthdate:   NSDate?
            var aka:         String = ""
     
            var profilePicURL: NSURL! {
             return NSURL(string: "\(profilePic)")
             }
+    
     
     required convenience init?(_ map: Map) {
         self.init()
@@ -59,7 +60,7 @@ class User: Object, Mappable {
         startDate       <- map["startDate"]
         location        <- map["location"]
         role            <- map["role"]
-        birthdate       <- map["birthdate"]
+        birthdate       <- (map["birthdate"], DateTransform())
         aka             <- map["aka"]
     }
 }
