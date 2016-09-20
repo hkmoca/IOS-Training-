@@ -10,6 +10,13 @@ import UIKit
 import Google
 import GoogleSignIn
 
+
+enum FilterType: Int {
+    case All = 0
+    case Employees = 1
+    case Interns = 2
+}
+
 class ContactsVC: UIViewController {
     //MARK: Properties
     
@@ -30,13 +37,15 @@ class ContactsVC: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.scopeButtonTitles = ["All", "Employees", "Intern"]
+        searchController.searchBar.delegate = self
+        
     }
     
     func displayEmployees(){
         let nsModel = NSModel()
             nsModel.showEmployees({ (Employees) in
                 self.people = Employees
-               // self.tableView.reloadData()
                 self.displayInterns()
                 }, onFailure: { (error) in
                     print ("Something went wrong with the Employees")
@@ -57,8 +66,21 @@ class ContactsVC: UIViewController {
     
     func filterContentForSearchText(searchText: String, scope: String = "All"){
         filteredPeople = people.filter { person in
-            return person.fullName.lowercaseString.containsString(searchText.lowercaseString)
-        }
+            
+            let hasTextConsidences = person.fullName.lowercaseString.containsString(searchText.lowercaseString)
+
+            if scope == "Intern"{
+                return hasTextConsidences && person.role == scope
+            } else if scope == "Employees"{
+                return hasTextConsidences && person.role != "Intern"
+            }
+            
+            return hasTextConsidences
+            
+            }
+            
+
+        
         tableView.reloadData()
     }
     
@@ -83,13 +105,25 @@ class ContactsVC: UIViewController {
                  userDetailVC.user = person
         }
     }
+    
+    func showSelectedScopePeople() {
+        
+    }
 }
 
 //MARK: - SearchResultUpdating
 
-extension ContactsVC: UISearchResultsUpdating{
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
+extension ContactsVC: UISearchResultsUpdating {
+     func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+         filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+     }
+ }
+
+extension ContactsVC: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
 }
 
@@ -106,6 +140,7 @@ extension ContactsVC: UITableViewDataSource{
             return filteredPeople.count
         }
         return people.count
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
