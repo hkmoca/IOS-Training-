@@ -11,6 +11,7 @@ import Google
 import GoogleSignIn
 
 
+
 enum FilterType: Int {
     case All = 0
     case Employees = 1
@@ -25,6 +26,8 @@ class ContactsVC: UIViewController {
     var filteredPeople = [User]()
     var person = User()
     var searchController = UISearchController(searchResultsController: nil)
+    
+    
     
     
     // MARK: View Setup
