@@ -17,6 +17,7 @@ class PersonDetailTableViewController: UITableViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var mobileLabel: UILabel!
     @IBOutlet weak var clientLabel: UILabel!
+    @IBOutlet weak var skype: UILabel!
     
     var user: User!
     
@@ -33,6 +34,7 @@ class PersonDetailTableViewController: UITableViewController {
         //emailLabel.text = user.email
         mobileLabel.text = user.mobile
         clientLabel.text = user.clients
+        skype.text = user.skype
         if user.profilePic == "" {
          //   profileImage.image = UIImage(named: "nearsoft-symbol")
         }
