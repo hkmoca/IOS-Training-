@@ -23,10 +23,10 @@ class UserDetailVC: UIViewController {
         super.viewDidLoad()
         
         fullName.text = user.fullName
-        if user.aka == "" {
+        if user.nickname == "" {
         akaLabel.text = "Not Available"
         } else {
-        akaLabel.text = user.aka
+        akaLabel.text = user.nickname
         }
         
         //emailLabel.text = user.email
