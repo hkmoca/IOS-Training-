@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Profile-->
@@ -199,8 +200,29 @@
                         <sections>
                             <tableViewSection id="tdI-KH-o0S">
                                 <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="159" id="gux-eu-xjd">
+                                        <rect key="frame" x="0.0" y="64" width="600" height="159"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gux-eu-xjd" id="rwA-6u-Qkm">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="158"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVL-IV-da1">
+                                                    <rect key="frame" x="199" y="11" width="203" height="135"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="203" id="7eu-mW-Oy1"/>
+                                                        <constraint firstAttribute="height" constant="135" id="pKZ-Rc-dRj"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hVL-IV-da1" firstAttribute="top" secondItem="rwA-6u-Qkm" secondAttribute="topMargin" constant="3" id="pdm-s9-t5G"/>
+                                                <constraint firstItem="hVL-IV-da1" firstAttribute="centerX" secondItem="rwA-6u-Qkm" secondAttribute="centerX" id="wYJ-tC-rHV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="O5Z-CH-Xpj">
-                                        <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="223" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O5Z-CH-Xpj" id="VZu-q4-snY">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
@@ -232,7 +254,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="RHh-g2-YWM">
-                                        <rect key="frame" x="0.0" y="114" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="273" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RHh-g2-YWM" id="aFO-Q4-nNk">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
@@ -264,7 +286,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="xae-Hj-YGt">
-                                        <rect key="frame" x="0.0" y="164" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="323" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xae-Hj-YGt" id="mky-jl-6Qb">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
@@ -296,7 +318,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="cEv-06-dWN">
-                                        <rect key="frame" x="0.0" y="214" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="373" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cEv-06-dWN" id="Xk6-8Z-WgV">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
@@ -332,7 +354,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="LdN-Wy-rm9">
-                                        <rect key="frame" x="0.0" y="264" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="423" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LdN-Wy-rm9" id="oOb-9u-fn7">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
@@ -369,7 +391,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="sfK-tN-RyJ">
-                                        <rect key="frame" x="0.0" y="314" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="473" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sfK-tN-RyJ" id="hOt-1K-Zgo">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
@@ -419,6 +441,7 @@
                         <outlet property="clientLabel" destination="z2R-5N-yNz" id="wRa-6a-h0H"/>
                         <outlet property="fullName" destination="toj-2v-U47" id="x4g-uX-G7Z"/>
                         <outlet property="mobileLabel" destination="XnD-Ij-jyg" id="mei-QF-8Kk"/>
+                        <outlet property="profileImage" destination="hVL-IV-da1" id="TgR-lC-fXS"/>
                         <outlet property="skype" destination="3cb-A8-W9G" id="xjw-cB-wbr"/>
                     </connections>
                 </tableViewController>
