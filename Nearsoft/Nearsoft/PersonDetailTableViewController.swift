@@ -24,10 +24,10 @@ class PersonDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         fullName.text = user.fullName
-        if user.aka == "" {
-            akaLabel.text = "Not Available"
+        if user.nickname == "" {
+            akaLabel.text = "No nickname"
         } else {
-            akaLabel.text = user.aka
+            akaLabel.text = user.nickname
         }
         
         //emailLabel.text = user.email
@@ -62,10 +62,10 @@ class PersonDetailTableViewController: UITableViewController {
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 5
-    }
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
