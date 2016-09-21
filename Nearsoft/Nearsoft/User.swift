@@ -29,7 +29,8 @@ class User: Object, Mappable {
            var location:    Int = 0
            var role:        String = ""
            var birthdate:   NSDate?
-           var aka:         String = ""
+           var nickname:    String = ""
+           var skype:       String = ""
     
            var profilePicURL: NSURL! {
             return NSURL(string: "\(profilePic)")
@@ -46,7 +47,7 @@ class User: Object, Mappable {
     }
     
     override static func ignoredProperties() -> [String] {
-            return ["profilePicURL", "yearsAtNS", "mobile", "clients", "startDate", "location", "role", "birthdate", "aka" ]
+            return ["profilePicURL", "yearsAtNS", "mobile", "clients", "startDate", "location", "role", "birthdate", "nickname", "skype" ]
     }
     
     func mapping(map: Map) {
@@ -61,7 +62,7 @@ class User: Object, Mappable {
         location        <- map["location"]
         role            <- map["role"]
         birthdate       <- (map["birthdate"], DateTransform())
-        aka             <- map["aka"]
+        nickname        <- map["aka"]
     }
 }
 
