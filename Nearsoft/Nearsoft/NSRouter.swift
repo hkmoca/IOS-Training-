@@ -11,7 +11,8 @@ import Alamofire
 
 enum NSRouter: URLRequestConvertible {
 
-    static let baseURLString = "https://www.dropbox.com"
+    //static let baseURLString = "https://www.dropbox.com"
+    static let baseURLString = "https://peopledb-api.azurewebsites.net"
     
     case getEmployees()
     case getInterns()
@@ -27,9 +28,11 @@ enum NSRouter: URLRequestConvertible {
         
         switch self {
         case .getEmployees:
-            return "/s/1je0rop2manf9w3/employees.json"
+            //return "/s/1je0rop2manf9w3/employees.json"
+            return "/api/Employees"
         case .getInterns:
-            return "/s/6edf3ely6vt8eps/interns.json"
+            return "/api/Interns"
+            //return "/s/6edf3ely6vt8eps/interns.json"
         }
     }
     
