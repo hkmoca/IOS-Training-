@@ -161,7 +161,7 @@
                                         <connections>
                                             <outlet property="email" destination="29Q-hb-qgR" id="PcZ-pI-lNP"/>
                                             <outlet property="userName" destination="Azz-8q-3oo" id="deZ-Tg-0Qk"/>
-                                            <segue destination="Vcz-AG-naH" kind="show" id="7kN-4U-OhF"/>
+                                            <segue destination="Vcz-AG-naH" kind="show" identifier="Details" id="7kN-4U-OhF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -188,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="1967" y="87"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Person Detail Table View Controller-->
         <scene sceneID="oRv-yq-4Fc">
             <objects>
-                <tableViewController id="Vcz-AG-naH" sceneMemberID="viewController">
+                <tableViewController id="Vcz-AG-naH" customClass="PersonDetailTableViewController" customModule="Nearsoft" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="z0w-6c-oDX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -318,6 +318,9 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
+                                                            <connections>
+                                                                <outletCollection property="gestureRecognizers" destination="iHK-YW-5oO" appends="YES" id="XVe-b7-03Z"/>
+                                                            </connections>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
@@ -373,8 +376,20 @@
                             <outlet property="delegate" destination="Vcz-AG-naH" id="GIN-Tt-HBR"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="akaLabel" destination="0ky-iz-FqS" id="adn-Oc-5SZ"/>
+                        <outlet property="birthDate" destination="BFe-Sj-0Yj" id="C1N-Bv-gLC"/>
+                        <outlet property="clientLabel" destination="z2R-5N-yNz" id="wRa-6a-h0H"/>
+                        <outlet property="fullName" destination="toj-2v-U47" id="x4g-uX-G7Z"/>
+                        <outlet property="mobileLabel" destination="XnD-Ij-jyg" id="mei-QF-8Kk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1l-FW-vbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iHK-YW-5oO">
+                    <connections>
+                        <action selector="callNumber:" destination="Vcz-AG-naH" id="7WV-D7-P73"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2625" y="87"/>
         </scene>
