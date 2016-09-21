@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class PersonDetailTableViewController: UITableViewController {
 
@@ -19,10 +20,13 @@ class PersonDetailTableViewController: UITableViewController {
     @IBOutlet weak var clientLabel: UILabel!
     @IBOutlet weak var skype: UILabel!
     
+    
     var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         fullName.text = user.fullName
         if user.nickname == "" {
@@ -31,12 +35,28 @@ class PersonDetailTableViewController: UITableViewController {
             akaLabel.text = user.nickname
         }
         
+        if user.mobile == "" {
+        mobileLabel.text = "No cellphone"
+        } else {
         mobileLabel.text = user.mobile
+        }
+        
+        if user.clients == "" {
+        clientLabel.text = "Doesn´t have a client"
+        } else {
         clientLabel.text = user.clients
+        }
+        
+        if user.skype == "" {
+        skype.text = "Skype not available"
+        } else {
         skype.text = user.skype
+        }
         
         if user.profilePic == "" {
             profileImage.image = UIImage(named: "nearsoft-symbol")
+        } else {
+            profileImage.af_setImageWithURL(user.profilePicURL)
         }
         
         
