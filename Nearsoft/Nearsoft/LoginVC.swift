@@ -43,27 +43,21 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             person.userId = user.userID                  // For client-side use only!
             person.idToken = user.authentication.idToken // Safe to send to the server
             person.fullName = user.profile.name
-            person.givenName = user.profile.givenName
-            person.familyName = user.profile.familyName
             person.email = user.profile.email
             person.profilePic = String(user.profile.imageURLWithDimension(200))
             
-            if (user.hostedDomain != nil) {
-            person.hostDomain = user.hostedDomain
-            }
-            
-            if person.hostDomain == "nearsoft.com" {
+            if (user.hostedDomain != nil) && user.hostedDomain == "nearsoft.com"{
                 try! realm.write {
                     realm.add(person, update: true)
                 }
                 
                 print(realm.configuration.fileURL)
-                print(user.authentication.clientID)
                 
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.switchToLogged()
                 
             } else {
+                
                 print ("Nop te la pelaste")
                 GIDSignIn.sharedInstance().signOut()
                 alert()
@@ -71,7 +65,9 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             }
             
         } else {
+            
             print("\(error.localizedDescription)")
+            
         }
     }
     
@@ -80,7 +76,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         let alert = UIAlertController(title: "Stop", message: "Please, LogIn with a valid Nearsoft account", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+        
     }
-
 }
 
