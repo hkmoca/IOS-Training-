@@ -33,7 +33,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92794911649214662" green="0.92794911649214662" blue="0.92794911649214662" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="DY3-sY-huU" firstAttribute="centerX" secondItem="byQ-Hb-4Z9" secondAttribute="centerX" id="6cB-Ce-Lde">
                                 <variation key="heightClass=compact" constant="-160"/>
