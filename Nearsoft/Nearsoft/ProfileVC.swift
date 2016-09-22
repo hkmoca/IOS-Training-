@@ -28,7 +28,6 @@ class ProfileVC: UIViewController {
         let person = persons[0] as User
             nameLabel.text = person.fullName
             emailLabel.text = person.email
-        
         self.profileImage.af_setImageWithURL(person.profilePicURL)
            
     }
