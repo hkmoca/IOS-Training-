@@ -33,6 +33,7 @@ class ContactsVC: UIViewController {
         
         displayEmployees()
         
+        
     }
     
     func displayEmployees(){
@@ -97,6 +98,7 @@ class ContactsVC: UIViewController {
                 }
             
              let userDetailVC = segue.destinationViewController as! PersonDetailTableViewController
+            
                  userDetailVC.user = person
         }
     }
@@ -136,7 +138,10 @@ extension ContactsVC: UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as? CustomCell
+        
+        
         if searchController.active && searchController.searchBar.text != "" {
             
             person = filteredPeople[indexPath.row]
@@ -149,6 +154,16 @@ extension ContactsVC: UITableViewDataSource{
         cell?.userName.text = person.fullName
         cell?.email.text = person.email
         
+        
         return cell!
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
+
+    }
+    
+   
 }
