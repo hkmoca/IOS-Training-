@@ -19,6 +19,7 @@ class PersonDetailTableViewController: UITableViewController {
     @IBOutlet weak var mobileLabel: UILabel!
     @IBOutlet weak var clientLabel: UILabel!
     @IBOutlet weak var skype: UILabel!
+    @IBOutlet weak var role: UILabel!
     
     
     var user: User!
@@ -29,47 +30,29 @@ class PersonDetailTableViewController: UITableViewController {
         
         
         fullName.text = user.fullName
-        if user.nickname == "" {
-            akaLabel.text = "No nickname"
-        } else {
-            akaLabel.text = user.nickname
-        }
-        
-        if user.mobile == "" {
-        mobileLabel.text = "No cellphone"
-        } else {
+        akaLabel.text = user.nickname
         mobileLabel.text = user.mobile
-        }
-        
-        if user.clients == "" {
-        clientLabel.text = "Doesn´t have a client"
-        } else {
         clientLabel.text = user.clients
-        }
-        
-        if user.skype == "" {
-        skype.text = "Skype not available"
-        } else {
+        emailLabel.text = user.email
+        role.text = user.role
         skype.text = user.skype
-        }
         
         if user.profilePic == "" {
             profileImage.image = UIImage(named: "nearsoft-symbol")
         } else {
             profileImage.af_setImageWithURL(user.profilePicURL)
         }
-        
+
         
         let dayTimePeriodFormatter = NSDateFormatter()
         dayTimePeriodFormatter.dateFormat = "EEEE, dd, MMMM YYYY"
+        
         if user.birthdate != nil {
         let dateString = dayTimePeriodFormatter.stringFromDate(user.birthdate!)
         birthDate.text = dateString
         } else {
         birthDate.text = "Birthdate not available"
         }
-        
-        
     }
     
     @IBAction func callNumber(sender: AnyObject) {
