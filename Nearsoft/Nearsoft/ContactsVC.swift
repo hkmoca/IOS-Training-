@@ -7,16 +7,7 @@
 //
 
 import UIKit
-import Google
-import GoogleSignIn
-
-
-
-enum FilterType: Int {
-    case All = 0
-    case Employees = 1
-    case Interns = 2
-}
+import RealmSwift
 
 class ContactsVC: UIViewController {
     //MARK: Properties
@@ -26,15 +17,12 @@ class ContactsVC: UIViewController {
     var filteredPeople = [User]()
     var person = User()
     var searchController = UISearchController(searchResultsController: nil)
-    
-    
-    
-    
+  
+
     // MARK: View Setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayEmployees()
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -43,13 +31,17 @@ class ContactsVC: UIViewController {
         searchController.searchBar.scopeButtonTitles = ["All", "Employees", "Intern"]
         searchController.searchBar.delegate = self
         
+        displayEmployees()
+        
     }
     
     func displayEmployees(){
         let nsModel = NSModel()
             nsModel.showEmployees({ (Employees) in
+                
                 self.people = Employees
                 self.displayInterns()
+                
                 }, onFailure: { (error) in
                     print ("Something went wrong with the Employees")
                 }
@@ -58,9 +50,11 @@ class ContactsVC: UIViewController {
     
     func displayInterns(){
         let nsModel = NSModel()
-            nsModel.showInterns({ (interns) in
-                self.people.appendContentsOf(interns)
+        nsModel.showInterns({ (Interns) in
+            
+                self.people.appendContentsOf(Interns)
                 self.tableView.reloadData()
+            
                 }, onFailure: { (error) in
                     print ("Something went wrong with the Interns")
                 }
@@ -81,13 +75,11 @@ class ContactsVC: UIViewController {
             return hasTextConsidences
             
             }
-            
-
         
         tableView.reloadData()
     }
     
-    // MARK: - Segues
+// MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Details" {
@@ -108,13 +100,9 @@ class ContactsVC: UIViewController {
                  userDetailVC.user = person
         }
     }
-    
-    func showSelectedScopePeople() {
-        
-    }
 }
 
-//MARK: - SearchResultUpdating
+//MARK: - Search
 
 extension ContactsVC: UISearchResultsUpdating {
      func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -140,6 +128,7 @@ extension ContactsVC: UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
+            
             return filteredPeople.count
         }
         return people.count
