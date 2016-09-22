@@ -63,6 +63,7 @@ class User: Object, Mappable {
         role            <- map["role"]
         birthdate       <- (map["birthdate"], DateTransform())
         nickname        <- map["aka"]
+        skype           <- map["skype"]
     }
 }
 
