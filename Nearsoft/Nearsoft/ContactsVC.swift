@@ -15,8 +15,10 @@ class ContactsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var people = [User]()
     var filteredPeople = [User]()
+    var sortedNames = [User]()
     var person = User()
     var searchController = UISearchController(searchResultsController: nil)
+    let contactModel = ContactModel()
   
 
     // MARK: View Setup
@@ -31,35 +33,14 @@ class ContactsVC: UIViewController {
         searchController.searchBar.scopeButtonTitles = ["All", "Employees", "Intern"]
         searchController.searchBar.delegate = self
         
-        displayEmployees()
+        contactModel.displayPeople { (people) in
+            self.people = people
+            self.sortedNames = self.people.sort { $0.fullName < $1.fullName }
+            self.tableView.reloadData()
+        }
         
         
-    }
-    
-    func displayEmployees(){
-        let nsModel = NSModel()
-            nsModel.showEmployees({ (Employees) in
-                
-                self.people = Employees
-                self.displayInterns()
-                
-                }, onFailure: { (error) in
-                    print ("Something went wrong with the Employees")
-                }
-        )
-    }
-    
-    func displayInterns(){
-        let nsModel = NSModel()
-        nsModel.showInterns({ (Interns) in
-            
-                self.people.appendContentsOf(Interns)
-                self.tableView.reloadData()
-            
-                }, onFailure: { (error) in
-                    print ("Something went wrong with the Interns")
-                }
-            )
+        
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All"){
@@ -85,17 +66,16 @@ class ContactsVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Details" {
     
-             let indexPath = tableView.indexPathForSelectedRow
-            
-                if searchController.active && searchController.searchBar.text != "" {
+            let indexPath = tableView.indexPathForSelectedRow
+            if searchController.active && searchController.searchBar.text != "" {
                     
                     person = filteredPeople[indexPath!.row]
                     
-                } else {
+            } else {
                     
-                    person = people[indexPath!.row]
+                    person = sortedNames[indexPath!.row]
                     
-                }
+            }
             
              let userDetailVC = segue.destinationViewController as! PersonDetailTableViewController
             
@@ -129,10 +109,12 @@ extension ContactsVC: UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if searchController.active && searchController.searchBar.text != "" {
             
             return filteredPeople.count
         }
+        
         return people.count
         
     }
@@ -140,28 +122,24 @@ extension ContactsVC: UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as? CustomCell
-        
-        
         if searchController.active && searchController.searchBar.text != "" {
             
             person = filteredPeople[indexPath.row]
             
         } else {
             
-            person = people[indexPath.row]
+            person = sortedNames[indexPath.row]
         }
 
         cell?.userName.text = person.fullName
         cell?.email.text = person.email
-        
-        
+
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    
 
     }
     
