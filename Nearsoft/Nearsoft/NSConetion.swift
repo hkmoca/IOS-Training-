@@ -13,7 +13,7 @@ class NSConection {
     
     func getEmployees(completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
         
-        Alamofire.request(NSRouter.getEmployees())
+        Alamofire.request(NSRouter.getEmployees)
         .responseJSON { response in
            
             switch response.result {
@@ -29,7 +29,7 @@ class NSConection {
     
     func getInterns(completion: (json: [[String: AnyObject]]) -> Void, onFailure: (error: NSError) -> Void) {
     
-        Alamofire.request(NSRouter.getInterns())
+        Alamofire.request(NSRouter.getInterns)
         .responseJSON { (response) in
             
             switch response.result {
