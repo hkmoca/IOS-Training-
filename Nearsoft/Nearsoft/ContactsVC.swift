@@ -38,9 +38,6 @@ class ContactsVC: UIViewController {
             self.sortedNames = self.people.sort { $0.fullName < $1.fullName }
             self.tableView.reloadData()
         }
-        
-        
-        
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All"){
@@ -78,7 +75,6 @@ class ContactsVC: UIViewController {
             }
             
              let userDetailVC = segue.destinationViewController as! PersonDetailTableViewController
-            
                  userDetailVC.user = person
         }
     }
