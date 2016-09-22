@@ -11,7 +11,6 @@ import ObjectMapper
 import RealmSwift
 
 class NSModel {
-     static let realm = try! Realm()
     let nsconection = NSConection()
     
     func showEmployees(completion: (people: [User]) -> Void, onFailure: (error: NSError) -> Void){
@@ -40,12 +39,6 @@ class NSModel {
                     onFailure(error: error)
                 }
                 )
-    }
-    
-     static func getIdToken() -> String {
-        let persons = realm.objects(User.self)
-        let user = persons[0] as User
-        return user.idToken
     }
     
 }
