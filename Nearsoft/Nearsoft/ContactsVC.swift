@@ -74,7 +74,7 @@ class ContactsVC: UIViewController {
                     
             }
             
-             let userDetailVC = segue.destinationViewController as! PersonDetailTableViewController
+             let userDetailVC = segue.destinationViewController as! PersonDetailTVC
                  userDetailVC.user = person
         }
     }

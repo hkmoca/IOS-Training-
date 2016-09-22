@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class PersonDetailTableViewController: UITableViewController {
+class PersonDetailTVC: UITableViewController {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullName: UILabel!
