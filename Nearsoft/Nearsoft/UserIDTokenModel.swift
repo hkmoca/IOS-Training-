@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class UserViewModel {
+class UserIDTokenModel {
      static let realm = try! Realm()
     
     static func getIDToken() -> String {
