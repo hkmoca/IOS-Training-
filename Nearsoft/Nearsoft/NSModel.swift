@@ -8,9 +8,10 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
 class NSModel {
-    
+     static let realm = try! Realm()
     let nsconection = NSConection()
     
     func showEmployees(completion: (people: [User]) -> Void, onFailure: (error: NSError) -> Void){
@@ -29,7 +30,7 @@ class NSModel {
     
     func showInterns(completion: (interns: [User]) -> Void, onFailure: (error: NSError) -> Void) {
     
-            nsconection.getInterns({ (json) in
+        nsconection.getInterns({ (json) in
                 if let interns: Array<User> = Mapper<User>().mapArray(json)!{
                     completion(interns: interns)
                 } else {
@@ -41,5 +42,10 @@ class NSModel {
                 )
     }
     
+     static func getIdToken() -> String {
+        let persons = realm.objects(User.self)
+        let user = persons[0] as User
+        return user.idToken
+    }
     
 }
