@@ -12,7 +12,7 @@ import RealmSwift
 class UserViewModel {
      static let realm = try! Realm()
     
-    static func getIdToken() -> String {
+    static func getIDToken() -> String {
        let persons = realm.objects(User.self)
         let user = persons[0] as User
         return user.idToken
