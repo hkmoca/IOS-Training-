@@ -9,14 +9,11 @@
 import UIKit
 import RealmSwift
 
-class UserIDTokenModel {
+class ContactModel {
     static let realm = try! Realm()
-           var people = [User]()
-           var interns = [User]()
-           let nsModel = NSModel()
-    
-    
-    
+    var people = [User]()
+    var interns = [User]()
+    let nsModel = NSModel()
     
     static func getIDToken() -> String {
        let persons = realm.objects(User.self)
@@ -27,15 +24,13 @@ class UserIDTokenModel {
     func displayPeople(completion: (people: [User]) -> Void){
         
        
-        nsModel.showEmployees({ (Employees) in
+         nsModel.showEmployees({ (Employees) in
             
             self.people = Employees
             self.displayInterns({ (interns) in
             self.people.appendContentsOf(interns)
                 completion(people: self.people)
             })
-            
-            
             
             }, onFailure: { (error) in
                 print ("Something went wrong with the Employees")
@@ -45,7 +40,7 @@ class UserIDTokenModel {
     
     func displayInterns(completion: (interns: [User]) -> Void) {
         
-        nsModel.showInterns({ (Interns) in
+         nsModel.showInterns({ (Interns) in
             
             self.interns = Interns
             completion(interns: self.interns)
