@@ -18,6 +18,7 @@ enum NSRouter: URLRequestConvertible {
     case getInterns
     
     var method: Alamofire.Method {
+        
         switch self {
         case .getEmployees, .getInterns:
             return .GET
