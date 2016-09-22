@@ -38,7 +38,7 @@ enum NSRouter: URLRequestConvertible {
     let URL = NSURL(string: NSRouter.baseURLString)
     let mutableURLRequest = NSMutableURLRequest(URL: (URL?.URLByAppendingPathComponent(path))!)
         mutableURLRequest.HTTPMethod = method.rawValue
-        mutableURLRequest.setValue("Bearer \(UserViewModel.getIdToken())", forHTTPHeaderField: "Authorization")
+        mutableURLRequest.setValue("Bearer \(UserViewModel.getIDToken())", forHTTPHeaderField: "Authorization")
     let enconding = Alamofire.ParameterEncoding.URL
         
         switch self {
