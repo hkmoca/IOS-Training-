@@ -9,11 +9,12 @@
 import UIKit
 import RealmSwift
 
-class ContactModel {
+class ContactViewModel {
+    
     static let realm = try! Realm()
     var people = [User]()
     var interns = [User]()
-    let nsModel = NSModel()
+    let nsModel = NSManager()
     
     static func getIDToken() -> String {
        let persons = realm.objects(User.self)
@@ -29,6 +30,7 @@ class ContactModel {
             self.people = Employees
             self.displayInterns({ (interns) in
             self.people.appendContentsOf(interns)
+            self.people = self.people.sort { $0.fullName < $1.fullName }
                 completion(people: self.people)
             })
             
