@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0F574517E694E3F5F066C235 /* Pods_Nearsoft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2696C13A56890EC1A8A200BD /* Pods_Nearsoft.framework */; };
+		150C07E21D9309660063C75F /* PersonDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C07E11D9309660063C75F /* PersonDetailTVC.swift */; };
+		150C07E41D93461B0063C75F /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C07E31D93461B0063C75F /* ContactViewModel.swift */; };
 		152923FD1D8B8D0400B04E4E /* ns-bug.png in Resources */ = {isa = PBXBuildFile; fileRef = 152923FC1D8B8D0400B04E4E /* ns-bug.png */; };
 		15EFAA5A1D87729D00540E08 /* NSConetion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA591D87729D00540E08 /* NSConetion.swift */; };
-		15EFAA5E1D87754300540E08 /* NSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA5D1D87754300540E08 /* NSModel.swift */; };
+		15EFAA5E1D87754300540E08 /* EmployeesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA5D1D87754300540E08 /* EmployeesManager.swift */; };
 		15EFAA601D887E9800540E08 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA5F1D887E9800540E08 /* CustomCell.swift */; };
-		15F5409D1D88DAC1008D65CE /* UserDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F5409C1D88DAC1008D65CE /* UserDetailVC.swift */; };
 		15F87F651D822432006EB49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87F641D822432006EB49E /* AppDelegate.swift */; };
 		15F87F671D822432006EB49E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87F661D822432006EB49E /* ProfileVC.swift */; };
 		15F87F6A1D822432006EB49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F87F681D822432006EB49E /* Main.storyboard */; };
@@ -46,11 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		150C07E11D9309660063C75F /* PersonDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailTVC.swift; sourceTree = "<group>"; };
+		150C07E31D93461B0063C75F /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		152923FC1D8B8D0400B04E4E /* ns-bug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ns-bug.png"; sourceTree = "<group>"; };
 		15EFAA591D87729D00540E08 /* NSConetion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSConetion.swift; sourceTree = "<group>"; };
-		15EFAA5D1D87754300540E08 /* NSModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSModel.swift; sourceTree = "<group>"; };
+		15EFAA5D1D87754300540E08 /* EmployeesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeesManager.swift; sourceTree = "<group>"; };
 		15EFAA5F1D887E9800540E08 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		15F5409C1D88DAC1008D65CE /* UserDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailVC.swift; sourceTree = "<group>"; };
 		15F87F611D822432006EB49E /* Nearsoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nearsoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F87F641D822432006EB49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15F87F661D822432006EB49E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -112,7 +114,9 @@
 		152923F91D89FF0900B04E4E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				15EFAA5D1D87754300540E08 /* NSModel.swift */,
+				15F87F9E1D85EC89006EB49E /* User.swift */,
+				15EFAA5D1D87754300540E08 /* EmployeesManager.swift */,
+				150C07E31D93461B0063C75F /* ContactViewModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -201,7 +205,7 @@
 				15F87F941D822A04006EB49E /* LoginVC.swift */,
 				15F87F661D822432006EB49E /* ProfileVC.swift */,
 				15F87FA21D8634C0006EB49E /* ContactsVC.swift */,
-				15F5409C1D88DAC1008D65CE /* UserDetailVC.swift */,
+				150C07E11D9309660063C75F /* PersonDetailTVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -217,7 +221,6 @@
 		15F87FAE1D868DA2006EB49E /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				15F87F9E1D85EC89006EB49E /* User.swift */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -425,10 +428,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15F87F671D822432006EB49E /* ProfileVC.swift in Sources */,
+				150C07E41D93461B0063C75F /* ContactViewModel.swift in Sources */,
 				15F87F651D822432006EB49E /* AppDelegate.swift in Sources */,
-				15EFAA5E1D87754300540E08 /* NSModel.swift in Sources */,
+				15EFAA5E1D87754300540E08 /* EmployeesManager.swift in Sources */,
 				15F87F9F1D85EC89006EB49E /* User.swift in Sources */,
-				15F5409D1D88DAC1008D65CE /* UserDetailVC.swift in Sources */,
+				150C07E21D9309660063C75F /* PersonDetailTVC.swift in Sources */,
 				15EFAA601D887E9800540E08 /* CustomCell.swift in Sources */,
 				15F87FA81D8674FA006EB49E /* NSRouter.swift in Sources */,
 				15EFAA5A1D87729D00540E08 /* NSConetion.swift in Sources */,
