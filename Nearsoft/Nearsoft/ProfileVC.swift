@@ -40,8 +40,7 @@ class ProfileVC: UIViewController {
             realm.deleteAll()
         }
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.switchToLogin()
+        SwitchViewManager.switchToLogin()
     }
 
 }
