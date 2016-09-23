@@ -22,11 +22,12 @@ class PersonDetailTVC: UITableViewController {
     @IBOutlet weak var role: UILabel!
     
     
+    
     var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let profilePicURL =  NSURL(string: "\(user.profilePic)")
         
         
         fullName.text = user.fullName
@@ -40,7 +41,7 @@ class PersonDetailTVC: UITableViewController {
         if user.profilePic == "" {
             profileImage.image = UIImage(named: "nearsoft-symbol")
         } else {
-            profileImage.af_setImageWithURL(user.profilePicURL)
+            profileImage.af_setImageWithURL(profilePicURL!)
         }
 
         
