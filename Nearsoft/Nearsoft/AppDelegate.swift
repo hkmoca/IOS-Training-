@@ -14,7 +14,6 @@ import RealmSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate  {
     let realm = try! Realm()
-
     var window: UIWindow?
     
     func application(application: UIApplication, openURL url: NSURL, options: [String: AnyObject]) -> Bool {
@@ -22,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
                                                     sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
                                                     annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
     }
-
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Initialize sign-in
@@ -32,9 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
     
         let persons = realm.objects(User.self)
         if persons.count == 0 {
-            switchToLogin()
+           SwitchViewManager.switchToLogin()
         } else {
-            switchToLogged()
+           SwitchViewManager.switchToLogged()
         }
         
         return true
@@ -62,16 +60,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func switchToLogged() {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let nav = storyboard.instantiateViewControllerWithIdentifier("Main")
-        self.window?.rootViewController = nav
-    }
-    
-    func switchToLogin(){
-        let storyboard = UIStoryboard.init(name: "Login", bundle: nil)
-        let nav = storyboard.instantiateViewControllerWithIdentifier("Login")
-        self.window?.rootViewController = nav
-    }
 }
 
