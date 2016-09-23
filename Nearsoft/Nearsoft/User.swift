@@ -32,9 +32,7 @@ class User: Object, Mappable {
            var nickname:    String = ""
            var skype:       String = ""
     
-           var profilePicURL: NSURL! {
-            return NSURL(string: "\(profilePic)")
-            }
+    
     
     
     required convenience init?(_ map: Map) {
@@ -47,7 +45,7 @@ class User: Object, Mappable {
     }
     
     override static func ignoredProperties() -> [String] {
-            return ["profilePicURL", "yearsAtNS", "mobile", "clients", "startDate", "location", "role", "birthdate", "nickname", "skype" ]
+            return ["yearsAtNS", "mobile", "clients", "startDate", "location", "role", "birthdate", "nickname", "skype" ]
     }
     
     func mapping(map: Map) {
