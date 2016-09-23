@@ -12,8 +12,9 @@
 		150C07E41D93461B0063C75F /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C07E31D93461B0063C75F /* ContactViewModel.swift */; };
 		152923FD1D8B8D0400B04E4E /* ns-bug.png in Resources */ = {isa = PBXBuildFile; fileRef = 152923FC1D8B8D0400B04E4E /* ns-bug.png */; };
 		15EFAA5A1D87729D00540E08 /* NSConetion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA591D87729D00540E08 /* NSConetion.swift */; };
-		15EFAA5E1D87754300540E08 /* EmployeesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA5D1D87754300540E08 /* EmployeesManager.swift */; };
+		15EFAA5E1D87754300540E08 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA5D1D87754300540E08 /* ContactManager.swift */; };
 		15EFAA601D887E9800540E08 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFAA5F1D887E9800540E08 /* CustomCell.swift */; };
+		15F4907A1D95AC2E00CE0A4C /* SwitchViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F490791D95AC2E00CE0A4C /* SwitchViewManager.swift */; };
 		15F87F651D822432006EB49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87F641D822432006EB49E /* AppDelegate.swift */; };
 		15F87F671D822432006EB49E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F87F661D822432006EB49E /* ProfileVC.swift */; };
 		15F87F6A1D822432006EB49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F87F681D822432006EB49E /* Main.storyboard */; };
@@ -51,8 +52,9 @@
 		150C07E31D93461B0063C75F /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		152923FC1D8B8D0400B04E4E /* ns-bug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ns-bug.png"; sourceTree = "<group>"; };
 		15EFAA591D87729D00540E08 /* NSConetion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSConetion.swift; sourceTree = "<group>"; };
-		15EFAA5D1D87754300540E08 /* EmployeesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeesManager.swift; sourceTree = "<group>"; };
+		15EFAA5D1D87754300540E08 /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		15EFAA5F1D887E9800540E08 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		15F490791D95AC2E00CE0A4C /* SwitchViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchViewManager.swift; sourceTree = "<group>"; };
 		15F87F611D822432006EB49E /* Nearsoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nearsoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F87F641D822432006EB49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15F87F661D822432006EB49E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -115,8 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				15F87F9E1D85EC89006EB49E /* User.swift */,
-				15EFAA5D1D87754300540E08 /* EmployeesManager.swift */,
+				15EFAA5D1D87754300540E08 /* ContactManager.swift */,
 				150C07E31D93461B0063C75F /* ContactViewModel.swift */,
+				15F490791D95AC2E00CE0A4C /* SwitchViewManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -430,13 +433,14 @@
 				15F87F671D822432006EB49E /* ProfileVC.swift in Sources */,
 				150C07E41D93461B0063C75F /* ContactViewModel.swift in Sources */,
 				15F87F651D822432006EB49E /* AppDelegate.swift in Sources */,
-				15EFAA5E1D87754300540E08 /* EmployeesManager.swift in Sources */,
+				15EFAA5E1D87754300540E08 /* ContactManager.swift in Sources */,
 				15F87F9F1D85EC89006EB49E /* User.swift in Sources */,
 				150C07E21D9309660063C75F /* PersonDetailTVC.swift in Sources */,
 				15EFAA601D887E9800540E08 /* CustomCell.swift in Sources */,
 				15F87FA81D8674FA006EB49E /* NSRouter.swift in Sources */,
 				15EFAA5A1D87729D00540E08 /* NSConetion.swift in Sources */,
 				15F87F951D822A04006EB49E /* LoginVC.swift in Sources */,
+				15F4907A1D95AC2E00CE0A4C /* SwitchViewManager.swift in Sources */,
 				15F87FA31D8634C0006EB49E /* ContactsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
