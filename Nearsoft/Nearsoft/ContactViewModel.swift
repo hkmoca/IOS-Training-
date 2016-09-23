@@ -14,7 +14,7 @@ class ContactViewModel {
     static let realm = try! Realm()
     var people = [User]()
     var interns = [User]()
-    let nsModel = NSManager()
+    let nsModel = EmployeesManager()
     
     static func getIDToken() -> String {
        let persons = realm.objects(User.self)
