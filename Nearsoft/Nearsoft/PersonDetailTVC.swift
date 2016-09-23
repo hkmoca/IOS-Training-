@@ -20,10 +20,7 @@ class PersonDetailTVC: UITableViewController {
     @IBOutlet weak var clientLabel: UILabel!
     @IBOutlet weak var skype: UILabel!
     @IBOutlet weak var role: UILabel!
-    
-    
-    
-    var user: User!
+                   var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,13 +74,3 @@ class PersonDetailTVC: UITableViewController {
 //        return 0
 //    }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
- 
-*/
