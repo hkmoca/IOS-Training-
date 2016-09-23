@@ -14,22 +14,19 @@ import RealmSwift
 class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     let realm = try! Realm()
+    var error: NSError?
     @IBOutlet weak var signInButton: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var error: NSError?
-        
         GGLContext.sharedInstance().configureWithError(&error)
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
         
         if error != nil {
             print (error)
             return
         }
-        
-         GIDSignIn.sharedInstance().uiDelegate = self
-         GIDSignIn.sharedInstance().delegate = self
         
     }
     
@@ -52,9 +49,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 }
                 
                 print(realm.configuration.fileURL)
-                
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.switchToLogged()
+                SwitchViewManager.switchToLogged()
                 
             } else {
                 
