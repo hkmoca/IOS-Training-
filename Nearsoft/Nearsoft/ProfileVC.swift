@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Google
+
 import GoogleSignIn
 import RealmSwift
 import AlamofireImage
@@ -28,7 +28,8 @@ class ProfileVC: UIViewController {
         let person = persons[0] as User
             nameLabel.text = person.fullName
             emailLabel.text = person.email
-        self.profileImage.af_setImageWithURL(person.profilePicURL)
+        let profilePicURL =  NSURL(string: "\(person.profilePic)")
+        self.profileImage.af_setImageWithURL(profilePicURL!)
            
     }
 
