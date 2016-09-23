@@ -23,7 +23,6 @@ class ContactViewModel {
     }
     
     func displayPeople(completion: (people: [User]) -> Void){
-        
        
          nsModel.showEmployees({ (Employees) in
             
