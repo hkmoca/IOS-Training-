@@ -15,10 +15,9 @@ class ContactsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var people = [User]()
     var filteredPeople = [User]()
-    var sortedNames = [User]()
     var person = User()
     var searchController = UISearchController(searchResultsController: nil)
-    let contactModel = ContactModel()
+    let contactModel = ContactViewModel()
   
 
     // MARK: View Setup
@@ -35,7 +34,6 @@ class ContactsVC: UIViewController {
         
         contactModel.displayPeople { (people) in
             self.people = people
-            self.sortedNames = self.people.sort { $0.fullName < $1.fullName }
             self.tableView.reloadData()
         }
     }
@@ -43,15 +41,15 @@ class ContactsVC: UIViewController {
     func filterContentForSearchText(searchText: String, scope: String = "All"){
         filteredPeople = people.filter { person in
             
-            let hasTextConsidences = person.fullName.lowercaseString.containsString(searchText.lowercaseString)
+            let hasTextCoincidences = person.fullName.lowercaseString.containsString(searchText.lowercaseString)
 
             if scope == "Intern"{
-                return hasTextConsidences && person.role == scope
+                return hasTextCoincidences && person.role == scope
             } else if scope == "Employees"{
-                return hasTextConsidences && person.role != "Intern"
+                return hasTextCoincidences && person.role != "Intern"
             }
             
-            return hasTextConsidences
+            return hasTextCoincidences
             
             }
         
@@ -70,7 +68,7 @@ class ContactsVC: UIViewController {
                     
             } else {
                     
-                    person = sortedNames[indexPath!.row]
+                    person = people[indexPath!.row]
                     
             }
             
@@ -124,7 +122,7 @@ extension ContactsVC: UITableViewDataSource{
             
         } else {
             
-            person = sortedNames[indexPath.row]
+            person = people[indexPath.row]
         }
 
         cell?.userName.text = person.fullName
