@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-class EmployeesManager {
+class ContactManager {
     let nsconection = NSConection()
     
     func showEmployees(completion: (people: [User]) -> Void, onFailure: (error: NSError) -> Void){
