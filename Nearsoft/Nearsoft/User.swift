@@ -62,6 +62,7 @@ class User: Object, Mappable {
         birthdate       <- (map["birthdate"], DateTransform())
         nickname        <- map["aka"]
         skype           <- map["skype"]
+        profilePic      <- map["imageUrl"]
     }
 }
 
