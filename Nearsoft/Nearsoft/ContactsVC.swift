@@ -124,9 +124,16 @@ extension ContactsVC: UITableViewDataSource{
             
             person = people[indexPath.row]
         }
-
+        let profilePicURL =  NSURL(string: "\(person.profilePic)")
         cell?.userName.text = person.fullName
         cell?.email.text = person.email
+        if person.profilePic == ""{
+            cell?.profilePic.image = UIImage(named: "nearsoft-symbol")
+        } else {
+            cell?.profilePic.af_setImageWithURL(profilePicURL!)
+        }
+        
+        
 
         return cell!
     }

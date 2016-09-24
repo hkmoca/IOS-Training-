@@ -11,7 +11,7 @@ import AlamofireImage
 
 class PersonDetailTVC: UITableViewController {
 
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var akaLabel: UILabel!
     @IBOutlet weak var birthDate: UILabel!
@@ -26,6 +26,12 @@ class PersonDetailTVC: UITableViewController {
         super.viewDidLoad()
         let profilePicURL =  NSURL(string: "\(user.profilePic)")
         
+        profilePic.layer.borderWidth = 1
+        profilePic.layer.masksToBounds = false
+        profilePic.layer.borderColor = UIColor.blackColor().CGColor
+        profilePic.layer.cornerRadius = profilePic.frame.height/2
+        profilePic.clipsToBounds = true
+        
         
         fullName.text = user.fullName
         akaLabel.text = user.nickname
@@ -36,9 +42,9 @@ class PersonDetailTVC: UITableViewController {
         skype.text = user.skype
         
         if user.profilePic == "" {
-            profileImage.image = UIImage(named: "nearsoft-symbol")
+            profilePic.image = UIImage(named: "nearsoft-symbol")
         } else {
-            profileImage.af_setImageWithURL(profilePicURL!)
+            profilePic.af_setImageWithURL(profilePicURL!)
         }
 
         
