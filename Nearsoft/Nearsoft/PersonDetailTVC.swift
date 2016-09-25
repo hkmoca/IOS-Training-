@@ -28,7 +28,7 @@ class PersonDetailTVC: UITableViewController {
         
         profilePic.layer.borderWidth = 1
         profilePic.layer.masksToBounds = false
-        profilePic.layer.borderColor = UIColor.blackColor().CGColor
+        profilePic.layer.borderColor = UIColor.orangeColor().CGColor
         profilePic.layer.cornerRadius = profilePic.frame.height/2
         profilePic.clipsToBounds = true
         
