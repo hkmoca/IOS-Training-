@@ -316,6 +316,7 @@
 				TargetAttributes = {
 					15F87F601D822432006EB49E = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 594V3GMFFH;
 					};
 					15F87F741D822432006EB49E = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -586,10 +587,13 @@
 			baseConfigurationReference = DA4892B897E6477AA2AB6F02 /* Pods-Nearsoft.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Nearsoft/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hkapp.Nearsoft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -598,10 +602,13 @@
 			baseConfigurationReference = 4B43CF764285874EF1FC9910 /* Pods-Nearsoft.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Nearsoft/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hkapp.Nearsoft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
