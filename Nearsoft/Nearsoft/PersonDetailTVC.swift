@@ -13,11 +13,9 @@ class PersonDetailTVC: UITableViewController {
 
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var fullName: UILabel!
-    @IBOutlet weak var akaLabel: UILabel!
     @IBOutlet weak var birthDate: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var mobileLabel: UILabel!
-    @IBOutlet weak var clientLabel: UILabel!
     @IBOutlet weak var skype: UILabel!
     @IBOutlet weak var role: UILabel!
                    var user: User!
@@ -36,7 +34,6 @@ class PersonDetailTVC: UITableViewController {
         fullName.text = user.fullName
         
         mobileLabel.text = user.mobile
-        clientLabel.text = user.clients
         emailLabel.text = user.email
         role.text = user.role
         skype.text = user.skype
