@@ -25,6 +25,7 @@ class ContactsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController!.navigationBar.tintColor = UIColor.orangeColor();
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
