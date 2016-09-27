@@ -164,7 +164,6 @@
 				15F87F6B1D822432006EB49E /* Assets.xcassets */,
 				152923FC1D8B8D0400B04E4E /* ns-bug.png */,
 				15F87F701D822432006EB49E /* Info.plist */,
-				15F87FAE1D868DA2006EB49E /* Class */,
 				15F87FA61D8651EA006EB49E /* ViewControllers */,
 				15F87FA51D864C84006EB49E /* StoryBoards */,
 				152923F91D89FF0900B04E4E /* Models */,
@@ -219,13 +218,6 @@
 				15F87FA71D8674FA006EB49E /* NSRouter.swift */,
 			);
 			name = Routers;
-			sourceTree = "<group>";
-		};
-		15F87FAE1D868DA2006EB49E /* Class */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Class;
 			sourceTree = "<group>";
 		};
 		2C8FFEA9B14A95AC4A8CCAA6 /* Pods */ = {
