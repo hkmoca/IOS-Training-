@@ -102,7 +102,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="Contacts Filled-100" selectedImage="Contacts Filled-100" id="bVB-LI-iDz"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Contacts" selectedImage="Contacts Filled" id="bVB-LI-iDz">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="keyPath">
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="emailLabel" destination="4OJ-rz-xut" id="iAh-rT-kgO"/>
                         <outlet property="nameLabel" destination="fya-an-2YY" id="Kqn-RU-2IV"/>
@@ -478,7 +484,7 @@
         <scene sceneID="jwF-EE-CuF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WVV-rz-mra" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contacts" image="Contact Card-100" selectedImage="Contact Card-100" id="eqQ-8l-8Hr"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="Conference Call" selectedImage="Conference Call Filled" id="eqQ-8l-8Hr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DMP-cN-n2D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -496,8 +502,10 @@
     </scenes>
     <resources>
         <image name="Birthday-Cake-512" width="170" height="170"/>
-        <image name="Contact Card-100" width="33" height="33"/>
-        <image name="Contacts Filled-100" width="26" height="26"/>
+        <image name="Conference Call" width="33" height="33"/>
+        <image name="Conference Call Filled" width="33" height="33"/>
+        <image name="Contacts" width="33" height="33"/>
+        <image name="Contacts Filled" width="33" height="33"/>
         <image name="I3NM6" width="315" height="147"/>
         <image name="arrroba" width="85" height="85"/>
         <image name="nearsoft-symbol" width="200" height="200"/>
