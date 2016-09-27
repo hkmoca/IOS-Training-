@@ -34,7 +34,7 @@ class PersonDetailTVC: UITableViewController {
         
         
         fullName.text = user.fullName
-        akaLabel.text = user.nickname
+        
         mobileLabel.text = user.mobile
         clientLabel.text = user.clients
         emailLabel.text = user.email
