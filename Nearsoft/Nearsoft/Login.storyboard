@@ -17,41 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ns-bug" translatesAutoresizingMaskIntoConstraints="NO" id="DY3-sY-huU">
-                                <rect key="frame" x="180" y="55" width="240" height="175"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="175" id="AdG-uK-7pa"/>
-                                    <constraint firstAttribute="width" constant="240" id="KLS-KS-BID"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="SGO-3g-FQN" customClass="GIDSignInButton">
-                                <rect key="frame" x="245" y="338" width="111" height="66"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="66" id="Kmf-LH-2JU"/>
-                                    <constraint firstAttribute="width" constant="111" id="jSc-4H-bQf"/>
-                                </constraints>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oD4-Fp-20v">
+                                <rect key="frame" x="188" y="260" width="225" height="79"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-logo" translatesAutoresizingMaskIntoConstraints="NO" id="bQy-NW-you">
+                                        <rect key="frame" x="0.0" y="0.0" width="225" height="55"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiO-Ev-NK1">
+                                        <rect key="frame" x="0.0" y="55" width="225" height="24"/>
+                                        <state key="normal" image="sign-in@3x-1"/>
+                                        <connections>
+                                            <action selector="googlePlusButtonTouchUpInside:" destination="Sgw-Aj-GlR" eventType="touchUpInside" id="06c-vh-9fx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.92794911649214662" green="0.92794911649214662" blue="0.92794911649214662" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="DY3-sY-huU" firstAttribute="centerX" secondItem="byQ-Hb-4Z9" secondAttribute="centerX" id="6cB-Ce-Lde">
-                                <variation key="heightClass=compact" constant="-160"/>
-                            </constraint>
-                            <constraint firstItem="SGO-3g-FQN" firstAttribute="centerX" secondItem="byQ-Hb-4Z9" secondAttribute="centerX" id="MXu-Sw-jhQ">
-                                <variation key="heightClass=compact" constant="146.5"/>
-                            </constraint>
-                            <constraint firstItem="DY3-sY-huU" firstAttribute="top" secondItem="kyv-PD-cqL" secondAttribute="bottom" constant="35" id="VeZ-r7-gkk">
-                                <variation key="heightClass=compact" constant="92"/>
-                            </constraint>
-                            <constraint firstItem="SGO-3g-FQN" firstAttribute="centerY" secondItem="byQ-Hb-4Z9" secondAttribute="centerY" constant="71" id="kyP-mX-1uv">
-                                <variation key="heightClass=compact" constant="0.0"/>
-                            </constraint>
+                            <constraint firstItem="oD4-Fp-20v" firstAttribute="centerX" secondItem="byQ-Hb-4Z9" secondAttribute="centerX" id="7qK-QD-TkT"/>
+                            <constraint firstItem="oD4-Fp-20v" firstAttribute="centerY" secondItem="byQ-Hb-4Z9" secondAttribute="centerY" id="e8s-8c-u1K"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="signInButton" destination="SGO-3g-FQN" id="694-wS-UdK"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEb-RS-2eB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,6 +46,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ns-bug" width="213" height="213"/>
+        <image name="sign-in@3x-1" width="80" height="24"/>
+        <image name="splash-logo" width="225" height="55"/>
     </resources>
 </document>
