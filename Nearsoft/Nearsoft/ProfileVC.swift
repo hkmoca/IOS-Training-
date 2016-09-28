@@ -11,8 +11,9 @@ class ProfileVC: UITableViewController {
     @IBOutlet weak var birthDate: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var mobileLabel: UILabel!
+    @IBOutlet weak var skype: UILabel!
+    @IBOutlet weak var role: UILabel!
     let realm = try! Realm()
-    var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +29,14 @@ class ProfileVC: UITableViewController {
         let person = persons[0] as User
         fullName.text = person.fullName
         emailLabel.text = person.email
+        mobileLabel.text = person.mobile
+        role.text = person.role
+        skype.text = person.skype
         let profilePicURL =  NSURL(string: "\(person.profilePic)")
         self.profilePic.af_setImageWithURL(profilePicURL!)
 
         
-        if user.profilePic == "" {
+        if person.profilePic == "" {
             profilePic.image = UIImage(named: "nearsoft-symbol")
         } else {
             profilePic.af_setImageWithURL(profilePicURL!)
@@ -42,8 +46,8 @@ class ProfileVC: UITableViewController {
         let dayTimePeriodFormatter = NSDateFormatter()
         dayTimePeriodFormatter.dateFormat = "EEEE, dd, MMMM YYYY"
         
-        if user.birthdate != nil {
-            let dateString = dayTimePeriodFormatter.stringFromDate(user.birthdate!)
+        if person.birthdate != nil {
+            let dateString = dayTimePeriodFormatter.stringFromDate(person.birthdate!)
             birthDate.text = dateString
         } else {
             birthDate.text = "Birthdate not available"
