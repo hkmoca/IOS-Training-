@@ -15,15 +15,20 @@ class ContactsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var people = [User]()
     var filteredPeople = [User]()
+    var profileUser = User()
     var person = User()
     var searchController = UISearchController(searchResultsController: nil)
     let contactModel = ContactViewModel()
+    let realm = try! Realm()
   
 
     // MARK: View Setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let persons = realm.objects(User.self)
+        let loggedUser = persons[0] as User
         
         self.navigationController!.navigationBar.tintColor = UIColor.orangeColor();
         searchController.searchResultsUpdater = self
@@ -36,8 +41,21 @@ class ContactsVC: UIViewController {
         contactModel.displayPeople { (people) in
             self.people = people
             self.tableView.reloadData()
+        
+        
+            self.profileUser = people.filter { nearsoftian in
+                            return nearsoftian.email == loggedUser.email
+                        }.first!
+            
+            try! self.realm.write {
+                self.realm.add(self.profileUser, update: true)
+            }
         }
+        
+        
+        
     }
+    
     
     func filterContentForSearchText(searchText: String, scope: String = "All"){
         filteredPeople = people.filter { person in

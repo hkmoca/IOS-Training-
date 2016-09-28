@@ -23,14 +23,14 @@ class User: Object, Mappable {
    dynamic var hostDomain:  String = ""
    dynamic var profilePic:  String = ""
            var yearsAtNS:   Int = 0
-           var mobile:      String = ""
+     dynamic var mobile:      String = ""
            var clients:     String = ""
            var startDate:   String = ""
            var location:    Int = 0
-           var role:        String = ""
-           var birthdate:   NSDate?
+    dynamic var role:        String = ""
+    dynamic var birthdate:   NSDate?
            var nickname:    String = ""
-           var skype:       String = ""
+   dynamic var skype:       String = ""
     
     
     
@@ -45,7 +45,7 @@ class User: Object, Mappable {
     }
     
     override static func ignoredProperties() -> [String] {
-            return ["yearsAtNS", "mobile", "clients", "startDate", "location", "role", "birthdate", "nickname", "skype" ]
+            return ["yearsAtNS", "clients", "startDate", "location", "nickname", ]
     }
     
     func mapping(map: Map) {
