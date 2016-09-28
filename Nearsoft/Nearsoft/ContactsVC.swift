@@ -20,6 +20,7 @@ class ContactsVC: UIViewController {
     var searchController = UISearchController(searchResultsController: nil)
     let contactModel = ContactViewModel()
     let realm = try! Realm()
+    
   
 
     // MARK: View Setup
@@ -29,6 +30,7 @@ class ContactsVC: UIViewController {
         
         let persons = realm.objects(User.self)
         let loggedUser = persons[0] as User
+        let idToken: String = ContactViewModel.getIDToken()
         
         self.navigationController!.navigationBar.tintColor = UIColor.orangeColor();
         searchController.searchResultsUpdater = self
@@ -42,10 +44,14 @@ class ContactsVC: UIViewController {
             self.people = people
             self.tableView.reloadData()
         
+                
         
             self.profileUser = people.filter { nearsoftian in
                             return nearsoftian.email == loggedUser.email
                         }.first!
+                
+            
+                self.profileUser.idToken = idToken
             
             try! self.realm.write {
                 self.realm.add(self.profileUser, update: true)
