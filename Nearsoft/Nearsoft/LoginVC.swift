@@ -15,7 +15,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     let realm = try! Realm()
     var error: NSError?
-    @IBOutlet weak var signInButton: GIDSignInButton!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +27,12 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             print (error)
             return
         }
-        
+        view.backgroundColor = UIColor(red: 0.95, green: 0.35, blue: 0.14, alpha: 1.0)
     }
     
+    @IBAction func googlePlusButtonTouchUpInside(sender: AnyObject) {
+        GIDSignIn.sharedInstance().signIn()
+    }
     //MARK: - Login
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
