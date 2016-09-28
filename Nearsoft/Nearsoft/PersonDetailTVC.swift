@@ -8,8 +8,9 @@
 
 import UIKit
 import AlamofireImage
+import MessageUI
 
-class PersonDetailTVC: UITableViewController {
+class PersonDetailTVC: UITableViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var fullName: UILabel!
@@ -60,6 +61,52 @@ class PersonDetailTVC: UITableViewController {
         if let url: NSURL = (NSURL(string: "tel://\(user.mobile)")){
             UIApplication.sharedApplication().openURL(url)
         }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        
+        if indexPath.section == 0 && indexPath.row == 2 {
+            print ("Selected email")
+            let mailComposeViewController = configureMailComposeViewController()
+            if MFMailComposeViewController.canSendMail() {
+                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            } else {
+                self.showSendMailErrorAlert()
+            }
+            
+        }
+    }
+    
+    func configureMailComposeViewController() -> MFMailComposeViewController{
+        let mailComposerVC = MFMailComposeViewController()
+            mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients(["\(user.email)"])
+        mailComposerVC.setSubject("")
+        mailComposerVC.setMessageBody("Send it from Nearsoft People app", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "Could not send Email", message: "Your device could not send e-mail", preferredStyle: UIAlertControllerStyle.Alert)
+            sendMailErrorAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(sendMailErrorAlert, animated: true, completion: nil)
+
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        
+        switch result.rawValue {
+        case MFMailComposeResultCancelled.rawValue:
+            print("Cancelled mail")
+        case MFMailComposeResultSent.rawValue:
+            print("Mail Sent")
+        default:
+            break
+            
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
