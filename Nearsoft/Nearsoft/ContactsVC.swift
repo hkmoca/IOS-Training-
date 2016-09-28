@@ -7,30 +7,22 @@
 //
 
 import UIKit
-import RealmSwift
 
 class ContactsVC: UIViewController {
     //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
+    var person = User()
     var people = [User]()
     var filteredPeople = [User]()
-    var profileUser = User()
-    var person = User()
-    var searchController = UISearchController(searchResultsController: nil)
     let contactModel = ContactViewModel()
-    let realm = try! Realm()
-    
-  
+    var refreshControl = UIRefreshControl()
+    var searchController = UISearchController(searchResultsController: nil)
 
     // MARK: View Setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let persons = realm.objects(User.self)
-        let loggedUser = persons[0] as User
-        let idToken: String = ContactViewModel.getIDToken()
         
         self.navigationController!.navigationBar.tintColor = UIColor.orangeColor();
         searchController.searchResultsUpdater = self
@@ -40,41 +32,46 @@ class ContactsVC: UIViewController {
         searchController.searchBar.scopeButtonTitles = ["All", "Employees", "Intern"]
         searchController.searchBar.delegate = self
         
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: #selector(ContactsVC.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView?.addSubview(refreshControl)
         
-            contactModel.displayPeople { (people) in
-            self.people = people
-            self.tableView.reloadData()
-        
-                
-        
-            self.profileUser = people.filter { nearsoftian in
-                            return nearsoftian.email == loggedUser.email
-                        }.first!
-                
-            
-                self.profileUser.idToken = idToken
-            
-            try! self.realm.write {
-                self.realm.add(self.profileUser, update: true)
-            }
-        }
+        displayPeople()
         
     }
     
+    func refresh(sender:AnyObject) {
+        displayPeople()
+    }
+    
+    func displayPeople() {
+        
+        contactModel.displayPeople ({ (people) in
+            self.people = people
+            self.tableView.reloadData()
+            if self.refreshControl.refreshing {
+                self.refreshControl.endRefreshing()
+            }
+            }, failure: { (error) in
+                
+                    let alert = UIAlertController(title: "Ops!", message: "Something´s wrong with your internet conection, pull down to try again", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    if self.refreshControl.refreshing {
+                        self.refreshControl.endRefreshing()
+                    }
+                })
+    }
     
     func filterContentForSearchText(searchText: String, scope: String = "All"){
         filteredPeople = people.filter { person in
-            
             let hasTextCoincidences = person.fullName.lowercaseString.containsString(searchText.lowercaseString)
-
             if scope == "Intern"{
                 return hasTextCoincidences && person.role == scope
             } else if scope == "Employees"{
                 return hasTextCoincidences && person.role != "Intern"
             }
-            
             return hasTextCoincidences
-            
             }
         
         tableView.reloadData()
@@ -87,17 +84,12 @@ class ContactsVC: UIViewController {
     
             let indexPath = tableView.indexPathForSelectedRow
             if searchController.active && searchController.searchBar.text != "" {
-                    
-                    person = filteredPeople[indexPath!.row]
-                    
+                person = filteredPeople[indexPath!.row]
             } else {
-                    
-                    person = people[indexPath!.row]
-                    
+                person = people[indexPath!.row]
             }
-            
-             let userDetailVC = segue.destinationViewController as! PersonDetailTVC
-                 userDetailVC.user = person
+            let userDetailVC = segue.destinationViewController as! PersonDetailTVC
+                userDetailVC.user = person
         }
     }
 }
@@ -127,25 +119,17 @@ extension ContactsVC: UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if searchController.active && searchController.searchBar.text != "" {
-            
             return filteredPeople.count
         }
-        
         return people.count
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as? CustomCell
         if searchController.active && searchController.searchBar.text != "" {
-            
             person = filteredPeople[indexPath.row]
-            
         } else {
-            
             person = people[indexPath.row]
         }
         let profilePicURL =  NSURL(string: "\(person.profilePic)")
@@ -156,17 +140,10 @@ extension ContactsVC: UITableViewDataSource{
         } else {
             cell?.profilePic.af_setImageWithURL(profilePicURL!)
         }
-        
-        
-
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
     }
-    
-   
 }
