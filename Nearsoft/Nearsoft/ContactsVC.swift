@@ -38,7 +38,7 @@ class ContactsVC: UIViewController {
         searchController.searchBar.scopeButtonTitles = ["All", "Employees", "Intern"]
         searchController.searchBar.delegate = self
         
-        contactModel.displayPeople { (people) in
+            contactModel.displayPeople { (people) in
             self.people = people
             self.tableView.reloadData()
         
