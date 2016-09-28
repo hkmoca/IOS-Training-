@@ -110,17 +110,3 @@ class PersonDetailTVC: UITableViewController, MFMailComposeViewControllerDelegat
     }
 
 }
-
-   
-    // MARK: - Table view data source
-
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
-
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
-
