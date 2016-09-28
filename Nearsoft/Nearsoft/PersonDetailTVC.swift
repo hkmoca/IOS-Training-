@@ -62,7 +62,7 @@ class PersonDetailTVC: UITableViewController {
         }
     }
 
-    }
+}
 
    
     // MARK: - Table view data source
