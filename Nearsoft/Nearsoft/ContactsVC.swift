@@ -40,6 +40,7 @@ class ContactsVC: UIViewController {
         searchController.searchBar.scopeButtonTitles = ["All", "Employees", "Intern"]
         searchController.searchBar.delegate = self
         
+        
             contactModel.displayPeople { (people) in
             self.people = people
             self.tableView.reloadData()
@@ -57,8 +58,6 @@ class ContactsVC: UIViewController {
                 self.realm.add(self.profileUser, update: true)
             }
         }
-        
-        
         
     }
     

@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
            SwitchViewManager.switchToLogged()
         }
         
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orangeColor()], forState:.Selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orangeColor()], forState:.Normal)
+
         return true
     }
 
