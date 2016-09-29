@@ -283,6 +283,7 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1X6-r3-A8U">
                                                     <rect key="frame" x="8" y="11" width="50" height="50"/>
+                                                    <color key="backgroundColor" red="0.94117647058823528" green="0.37647058823529411" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="J9Y-n4-Qv8"/>
                                                         <constraint firstAttribute="width" constant="50" id="qMT-zL-arM"/>
@@ -294,19 +295,30 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqz-Zx-Jdm">
+                                                    <rect key="frame" x="12" y="25" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" red="0.9279491165" green="0.9279491165" blue="0.9279491165" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="29Q-hb-qgR" firstAttribute="top" secondItem="Azz-8q-3oo" secondAttribute="bottom" constant="8" id="25J-pB-ZzS"/>
+                                                <constraint firstItem="Hqz-Zx-Jdm" firstAttribute="leading" secondItem="BAi-3b-1vP" secondAttribute="leadingMargin" constant="4" id="6bX-ZF-8Wc"/>
                                                 <constraint firstItem="Azz-8q-3oo" firstAttribute="top" secondItem="BAi-3b-1vP" secondAttribute="topMargin" constant="3" id="Lra-NS-8NG"/>
+                                                <constraint firstItem="29Q-hb-qgR" firstAttribute="leading" secondItem="Hqz-Zx-Jdm" secondAttribute="trailing" constant="9" id="OyT-WH-miv"/>
                                                 <constraint firstItem="1X6-r3-A8U" firstAttribute="top" secondItem="BAi-3b-1vP" secondAttribute="top" constant="11" id="XPC-bB-OQ5"/>
                                                 <constraint firstItem="Azz-8q-3oo" firstAttribute="leading" secondItem="1X6-r3-A8U" secondAttribute="trailing" constant="5" id="Zgc-cT-vRU"/>
+                                                <constraint firstItem="Hqz-Zx-Jdm" firstAttribute="top" secondItem="BAi-3b-1vP" secondAttribute="topMargin" constant="17" id="dfb-Yb-ByB"/>
                                                 <constraint firstItem="29Q-hb-qgR" firstAttribute="leading" secondItem="1X6-r3-A8U" secondAttribute="trailing" constant="5" id="niu-q0-a7v"/>
                                                 <constraint firstAttribute="trailing" secondItem="Azz-8q-3oo" secondAttribute="trailing" constant="8" id="pq6-Jl-cVA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Hqz-Zx-Jdm" secondAttribute="bottom" constant="17" id="spW-U3-d5z"/>
                                                 <constraint firstItem="1X6-r3-A8U" firstAttribute="leading" secondItem="BAi-3b-1vP" secondAttribute="leading" constant="8" id="yoK-br-np3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="email" destination="29Q-hb-qgR" id="PcZ-pI-lNP"/>
+                                            <outlet property="initialsName" destination="Hqz-Zx-Jdm" id="IaE-Qe-EAf"/>
                                             <outlet property="profilePic" destination="1X6-r3-A8U" id="Hyq-7S-75q"/>
                                             <outlet property="userName" destination="Azz-8q-3oo" id="deZ-Tg-0Qk"/>
                                             <segue destination="Vcz-AG-naH" kind="show" identifier="Details" id="7kN-4U-OhF"/>

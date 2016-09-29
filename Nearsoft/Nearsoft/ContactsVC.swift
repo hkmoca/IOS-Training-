@@ -134,13 +134,27 @@ extension ContactsVC: UITableViewDataSource{
         } else {
             person = people[indexPath.row]
         }
+        
         let profilePicURL =  NSURL(string: "\(person.profilePic)")
+        var fullNameArray = person.fullName.characters.split{$0 == " "}.map(String.init)
+        let initialOnName = fullNameArray[0][fullNameArray[0].startIndex]
+        let initialOnLastName = fullNameArray[1][fullNameArray[1].startIndex]
+        
         cell?.userName.text = person.fullName
         cell?.email.text = person.email
+        
+        
+        cell?.profilePic.image = nil
+        
+        
         if person.profilePic == ""{
-            cell?.profilePic.image = UIImage(named: "nearsoft-symbol")
+            cell?.initialsName.text = ("\(initialOnName)\(initialOnLastName)")
+            cell?.initialsName.hidden = false
+            
         } else {
             cell?.profilePic.af_setImageWithURL(profilePicURL!)
+            cell?.initialsName.hidden = true
+            
         }
         return cell!
     }
