@@ -18,11 +18,11 @@ class ContactsVC: UIViewController {
     let contactModel = ContactViewModel()
     var refreshControl = UIRefreshControl()
     var searchController = UISearchController(searchResultsController: nil)
-
-    // MARK: View Setup
+        // MARK: View Setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let searchBar = searchController.searchBar
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -34,6 +34,9 @@ class ContactsVC: UIViewController {
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: #selector(ContactsVC.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView?.addSubview(refreshControl)
+        
+
+        searchBar.tintColor = UIColor.orangeColor()
         
         displayPeople()
         
