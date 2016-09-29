@@ -52,6 +52,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 }
                 
                 print(realm.configuration.fileURL)
+                print(user.authentication.idToken)
                 SwitchViewManager.switchToLogged()
                 
             } else {
