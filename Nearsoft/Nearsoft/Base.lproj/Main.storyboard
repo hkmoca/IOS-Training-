@@ -410,9 +410,6 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
-                                                            <connections>
-                                                                <outletCollection property="gestureRecognizers" destination="iHK-YW-5oO" appends="YES" id="XVe-b7-03Z"/>
-                                                            </connections>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
@@ -422,6 +419,10 @@
                                                 <constraint firstItem="wp3-Ka-jOz" firstAttribute="leading" secondItem="Xk6-8Z-WgV" secondAttribute="leading" constant="16" id="y1w-gj-6CZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="0Oa-AV-efZ" appends="YES" id="SFI-G7-yQx"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="8W8-yB-TFN">
                                         <rect key="frame" x="0.0" y="361" width="600" height="50"/>
@@ -548,9 +549,9 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1l-FW-vbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="iHK-YW-5oO">
+                <tapGestureRecognizer id="0Oa-AV-efZ">
                     <connections>
-                        <action selector="callNumber:" destination="Vcz-AG-naH" id="7WV-D7-P73"/>
+                        <action selector="callNumber:" destination="Vcz-AG-naH" id="X7o-O0-Pxf"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
