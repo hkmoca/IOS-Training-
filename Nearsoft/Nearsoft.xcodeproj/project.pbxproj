@@ -321,7 +321,7 @@
 				TargetAttributes = {
 					15F87F601D822432006EB49E = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 594V3GMFFH;
+						DevelopmentTeam = TF76XBAQC8;
 					};
 					15F87F741D822432006EB49E = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -614,7 +614,7 @@
 				INFOPLIST_FILE = Nearsoft/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Hkapp.Nearsoft;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nspeople.nearsoft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -634,7 +634,7 @@
 				INFOPLIST_FILE = Nearsoft/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Hkapp.Nearsoft;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nspeople.nearsoft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
