@@ -14,6 +14,7 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var initialsName: UILabel!
     
     
     
