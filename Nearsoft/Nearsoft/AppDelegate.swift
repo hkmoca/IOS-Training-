@@ -42,7 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orangeColor()], forState:.Selected)
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orangeColor()], forState:.Normal)
+        UITabBar.appearance().tintColor = UIColor.orangeColor()
+        
 
+
+        
+        
         return true
     }
 
