@@ -136,7 +136,7 @@ extension ContactsVC: UITableViewDataSource{
         }
         
         let profilePicURL =  NSURL(string: "\(person.profilePic)")
-        var fullNameArray = person.fullName.characters.split{$0 == " "}.map(String.init)
+        var fullNameArray = person.fullName.componentsSeparatedByString(" ")
         let initialOnName = fullNameArray[0][fullNameArray[0].startIndex]
         let initialOnLastName = fullNameArray[1][fullNameArray[1].startIndex]
         
