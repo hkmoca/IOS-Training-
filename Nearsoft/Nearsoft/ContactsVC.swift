@@ -35,7 +35,6 @@ class ContactsVC: UIViewController {
         self.refreshControl.addTarget(self, action: #selector(ContactsVC.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView?.addSubview(refreshControl)
         
-
         searchBar.tintColor = UIColor.orangeColor()
         
         displayPeople()
@@ -60,7 +59,9 @@ class ContactsVC: UIViewController {
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                     if self.refreshControl.refreshing {
+                        
                         self.refreshControl.endRefreshing()
+                        
                     }
                 })
     }
@@ -69,11 +70,16 @@ class ContactsVC: UIViewController {
         filteredPeople = people.filter { person in
             let hasTextCoincidences = person.fullName.lowercaseString.containsString(searchText.lowercaseString)
             if scope == "Intern"{
+                
                 return hasTextCoincidences && person.role == scope
+                
             } else if scope == "Employees"{
+                
                 return hasTextCoincidences && person.role != "Intern"
+                
             }
             return hasTextCoincidences
+            
             }
         
         tableView.reloadData()
@@ -87,9 +93,12 @@ class ContactsVC: UIViewController {
             let indexPath = tableView.indexPathForSelectedRow
             if searchController.active && searchController.searchBar.text != "" {
                 person = filteredPeople[indexPath!.row]
+                
             } else {
+                
                 person = people[indexPath!.row]
             }
+            
             let userDetailVC = segue.destinationViewController as! PersonDetailTVC
                 userDetailVC.user = person
         }
@@ -122,7 +131,9 @@ extension ContactsVC: UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
+            
             return filteredPeople.count
+            
         }
         return people.count
     }
@@ -130,8 +141,10 @@ extension ContactsVC: UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as? CustomCell
         if searchController.active && searchController.searchBar.text != "" {
+            
             person = filteredPeople[indexPath.row]
         } else {
+            
             person = people[indexPath.row]
         }
         
